@@ -1,23 +1,95 @@
 
+:root {
+    --transition: all 0.5s ease-in-out;
+}
 
-.box img{
+
+
+
+/*Sección de botones principales*/
+
+.detail{
+    justify-content: center;
+    background-color: #ffffff;
+    border: 2.5px solid #f9f9f9;
+    text-align: center;
+    padding: 3.4rem 0;
+    margin: 2rem 0;
+    flex-direction: row;
+   
+}
+
+
+
+
+.item img{
     width: 150px;
     height: 150px;
     margin-left: 18px;
 
 }
-.box {
-margin: 30px;
+.item{
 background-color:#f3eeee;
-width: 200px;
-height: 200px;
-padding: 30px;
+text-align: center;
+box-shadow: 0 1px 2px 0  rgba(90, 91, 95, 0.1);
+-webkit-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+-moz-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+margin: 20px 20px 20px 20px;
+padding: 3.4rem 0;
+border-radius: 8px;
+transition: var(--transition);
+width: 250px;
+display: inline-block;
+
 }
 
-.minibox {
-    margin-top: -35px;
-    margin-left: 22px;
+
+.item:hover{
+    -webkit-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+    -moz-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+    box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+    transform: translateY(-15px);
+}
+
+.button .form_btn{
+    background: #1696E4;
+    color:#fff;
+    text-transform: capitalize;
+    font-size: 20px;
+    cursor: pointer;
     width: 150px;
-    height: 50px;
-    background-color: #1696E4;
+    padding:7px 8px;
+    font-size: 17px;
+    margin:2px 0;
+    background: #1696E4;
+    border-radius: 5px;
+    font-family: "Poetsen One", sans-serif;
+ }
+ 
+ .button .form_btn:hover{
+    background: #fff;
+    color:#1696E4;
+ }
+
+ .item .button span{
+    display: block;
+}
+.item .button span:first-child{
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    color: #04896F;
+}
+.item .button span:last-child{
+    font-size: 0.85rem;
+    letter-spacing: 1;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 1200px){
+ 
+    .detail .row{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
 }
