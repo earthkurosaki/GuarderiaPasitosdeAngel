@@ -6,68 +6,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 
-    <style>
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* Esto ayuda a manejar el ancho de las columnas */
-}
-
-th, td {
-    border: 1px solid #cccccc;
-    padding: 8px;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    overflow: hidden; /* Previene desbordamiento del contenido */
-    text-overflow: ellipsis; /* Añade elipsis si el texto es demasiado largo */
-    white-space: nowrap; /* Mantiene el contenido en una sola línea */
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
-tbody tr:hover {
-    background-color: #e9e9e9;
-}
-
-@media screen and (max-width: 600px) {
-    thead {
-        display: none;
-    }
-
-    table, tbody, tr, td {
-        display: block;
-    }
-
-    tr {
-        margin-bottom: 10px;
-    }
-
-    td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 10px;
-        text-align: left;
-        font-weight: bold;
-    }
-}
-
-    </style>
 </head>
 <body>
 
