@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="/frontend/assets/imgs/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="./frontend/assets/imgs/favicon.png" type="./image/png" />
 </head>
 
 <body class="bg-blue-50">

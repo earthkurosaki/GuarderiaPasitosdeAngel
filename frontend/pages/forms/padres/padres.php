@@ -12,23 +12,22 @@
 
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="/frontend/assets/imgs/favicon.png" type="image/png" />
+
+
 </head>
 
 <body class="bg-blue-50">
+
+
     <div class="container mx-auto p-8">
         <h1 class="text-3xl font-bold mb-8 text-blue-900">Registro de Tutores</h1>
 
         <!-- Datos del Niño -->
         <section class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 class="text-xl font-bold mb-4 text-blue-900">Datos del tutor</h2>
-            <form action="insertar.php" method="post" class="space-y-4">
+            <form action="inserta.php" method="post" class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="form-group">
-                        <label for="rp" class="text-blue-900">Relación Parental:</label>
-                        <input type="text" id="rp" name="rp"
-                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
-                            required>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="nombre" class="text-blue-900">Nombre:</label>
                         <input type="text" id="nombre" name="nombre"
@@ -41,6 +40,14 @@
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
                             required>
                     </div>
+
+                    <div class="form-group">
+                        <label for="rp" class="text-blue-900">Relación Parental:</label>
+                        <input type="text" id="rp" name="rp"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
                     <div class="form-group">
                         <label for="fechanac" class="text-blue-900">Fecha de Nacimiento:</label>
                         <input type="text" id="fechanac" name="fechanac" placeholder="YYYY/MM/dd"
@@ -115,35 +122,31 @@
                         </select>
                     </div>
 
-
-                </div>
-            </form>
-        </section>
-
-        <!-- Información médica -->
-        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 class="text-xl font-semibold mb-4 text-blue-900">Niño Relacionado</h2>
-            <form action="insertar.php" method="post" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    
                     <div class="form-group">
-                        <label for="desc_alergia" class="text-blue-900">Coloque el ID del niño:</label>
-                        <input type="text" id="desc_alergia" name="desc_alergia"
+                        <label for="nino" class="text-blue-900">Coloque el ID del niño:</label>
+                        <input type="text" id="nino" name="nino"
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
                     </div>
-                
-                    
-                </div>
-            </form>
-        </section>
-
-        <!-- Botón de enviar -->
-        <div class="flex justify-center">
+                    <div class="flex justify-center">
             <button type="submit"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Registrar
             </button>
         </div>
+
+                </div>
+            </form>
+        </section>
+
+       
+        <!-- Botón de registros -->
+
+        <form action="prueba.php" method="post">
+<label for="emp">Buscar tutor:</label>
+    <input type="text" name="buscar" placeholder="ID">
+    <button type="submit" name="submit">Buscar</button>
+</form>
+        
     </div>
 </body>
 
