@@ -7,7 +7,7 @@ $fechanac = $_POST['fechanac'];
 $edad = $_POST['edad'];
 $genero = $_POST['genero'];
 $nacionalidad = $_POST['nacionalidad'];
-$modnacer = $_POST['modnacer'];
+$modo_nacer = $_POST['modo_nacer'];
 $canthermanos = $_POST['canthermanos'];
 $nivedu = $_POST['nivedu'];
 $alergia = $_POST['alergia'];
@@ -15,8 +15,8 @@ $desc_alergia = $_POST['desc_alergia'];
 $discapacidad = $_POST['discapacidad'];
 $desc_discapacidad = $_POST['desc_discapacidad'];
 
-$sqlinsert = "INSERT into nino VALUES (0,'$nombre', '$apellido', '$fechanac', '$edad', '$genero', '$nacionalidad',
-                                         '$modnacer', '$canthermanos', '$nivedu', '$alergia', '$desc_alergia',
+$sqlinsert = "INSERT into nino (nombre, apellido, fecha_nac, edad, genero, nacionalidad, modo_nacer, cantidad_hermanos, nivel_educativo, alergia, desc_alergia, discapacidad, desc_discapacidad) VALUES ('$nombre', '$apellido', '$fechanac', '$edad', '$genero', '$nacionalidad',
+                                         '$modo_nacer', '$canthermanos', '$nivedu', '$alergia', '$desc_alergia',
                                          '$discapacidad', '$desc_discapacidad')";
 
 mysqli_query($mysqli, $sqlinsert);
