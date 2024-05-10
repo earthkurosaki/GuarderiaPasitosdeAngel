@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css2/formulario.css">
-    <title>Iinicio de Sesión</title>
+    <title>Inicio de Sesión</title>
     
 </head>
 <body>

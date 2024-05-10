@@ -122,11 +122,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="nino" class="text-blue-900">Coloque el ID del niño:</label>
-                        <input type="text" id="nino" name="nino"
-                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
-                    </div>
+                    
                     <div class="flex justify-center">
             <button type="submit"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
