@@ -1,88 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modificar niños</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar niños</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body>
-<!-- Codigo PHP -->
-<?php
-include_once 'conectarBD.php'; 
-$id = $_POST['id'];
+    <!-- Codigo PHP -->
+    <?php
+    include_once 'conectar_bd.php';
+    $id = $_GET['rn'];
 
-$query = "SELECT * FROM ninos WHERE id='$id'";
-$data = mysqli_query($mysqli, $query);
-$total = mysqli_num_rows($data);
+    $query = "SELECT * FROM nino WHERE id_nino='$id'";
+    $data = mysqli_query($mysqli, $query);
+    $total = mysqli_num_rows($data);
 
-if($total > 0) {
-    $row = mysqli_fetch_assoc($data);
-    $nombre= $row['nombre'];
-    $fechanac= $row['fecha_nac'];
-    $edad= $row['edad']; 
-    $nacionalidad= $row['nacionalidad']; 
-    $genero= $row['genero']; 
-    $modnacer= $row['modo_nacer']; 
-    $canthermanos= $row['cant_hermanos']; 
-    $alergias= $row['alergias']; 
-    $especificacion= $row['especificacion']; 
-    $nivedu= $row['niv_educativo']; 
-}
-?>
+    if ($total > 0) {
+        $row = mysqli_fetch_assoc($data);
+        $nombre = $row['nombre'];
+        $apellido = $row['apellido'];
+        $fecha_nac = $row['fecha_nac'];
+        $edad = $row['edad'];
+        $genero = $row['genero'];
+        $nacionalidad = $row['nacionalidad'];
+        $modo_nacer = $row['modo_nacer'];
+        $cant_hermanos = $row['cant_hermanos'];
+        $niv_educativo = $row['niv_educativo'];
+        $alergia = $row['alergia'];
+        $desc_alergia = $row['desc_alergia'];
+        $discapacidad = $row['discapacidad'];
+        $desc_discapacidad = $row['desc_discapacidad'];
+    }
+    ?>
 
-<!-- Formulario para editar -->
-<div class="container">
-    <h1>Modificar niños</h1>
-    <form action="actualiza.php" method="post">
-        <div class="form-group">
-            <label for="id">Id:</label>
-            <input type="text" id="id" name="id" value="<?php echo $id?>"> 
-        </div> <br>
-        <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="<?php echo $nombre?>">
-        </div> <br>
-        <div class="form-group">
-            <label for="fechanac">Fecha nacimiento:</label>
-            <input type="text" id="fechanac" name="fechanac" rows="5" value="<?php echo $fechanac?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="edad">Edad:</label>
-            <input type="text" id="edad" name="edad" value="<?php echo $edad?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="nacionalidad">Nacionalidad:</label>
-            <input id="nacionalidad" name="nacionalidad" rows="5" value="<?php echo $nacionalidad?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="genero">Género:</label>
-            <input type="text" id="genero" name="genero" rows="5" value="<?php echo $genero?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="modnacer">Modo de nacer:</label>
-            <input type="text" id="modnacer" name="modnacer" rows="5" value="<?php echo $modnacer?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="canthermanos">Cantidad de hermanos:</label>
-            <input type="text" id="canthermanos" name="canthermanos" rows="5" value="<?php echo $canthermanos?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="alergias">Alergias:</label>
-            <input type="text" id="alergias" name="alergias" rows="5" value="<?php echo $alergias?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="especificaciones">Especificaciones:</label>
-            <input type="text" id="especificaciones" name="especificacion" rows="5" value="<?php echo $especificacion?>"></input>
-        </div> <br>
-        <div class="form-group">
-            <label for="nivedu">Nivel académico:</label>
-            <input type="text" id="nivedu" name="nivedu" rows="5" value="<?php echo $nivedu?>"></input>
-        </div> <br>
+    <!-- Formulario para editar -->
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8 text-gray-900">Modificar niños</h1>
+        <form action="actualiza.php" method="post" class="space-y-4">
+            <input type="hidden" name="id_nino" value="<?php echo $id ?>">
+            <div>
+                <label for="nombre" class="text-gray-700">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="<?php echo $nombre ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="apellido" class="text-gray-700">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" value="<?php echo $apellido ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="fechanac" class="text-gray-700">Fecha nacimiento:</label>
+                <input type="text" id="fechanac" name="fechanac" value="<?php echo $fecha_nac ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="edad" class="text-gray-700">Edad:</label>
+                <input type="text" id="edad" name="edad" value="<?php echo $edad ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="nacionalidad" class="text-gray-700">Nacionalidad:</label>
+                <input type="text" id="nacionalidad" name="nacionalidad" value="<?php echo $nacionalidad ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="genero" class="text-gray-700">Género:</label>
+                <input type="text" id="genero" name="genero" value="<?php echo $genero ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="modnacer" class="text-gray-700">Modo de nacer:</label>
+                <input type="text" id="modnacer" name="modnacer" value="<?php echo $modo_nacer ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="canthermanos" class="text-gray-700">Cantidad de hermanos:</label>
+                <input type="text" id="canthermanos" name="canthermanos" value="<?php echo $cant_hermanos ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="nivedu" class="text-gray-700">Nivel educativo:</label>
+                <input type="text" id="nivedu" name="nivedu" value="<?php echo $niv_educativo ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="alergias" class="text-gray-700">Alergias:</label>
+                <input type="text" id="alergias" name="alergias" value="<?php echo $alergia ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="descalergia" class="text-gray-700">Descripción de alergias:</label>
+                <input type="text" id="descalergia" name="descalergia" value="<?php echo $desc_alergia ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="discapacidad" class="text-gray-700">Discapacidad:</label>
+                <input type="text" id="discapacidad" name="discapacidad" value="<?php echo $discapacidad ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="descdiscapacidad" class="text-gray-700">Descripción de discapacidad:</label>
+                <input type="text" id="descdiscapacidad" name="descdiscapacidad" value="<?php echo $desc_discapacidad ?>" class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
+            </div>
 
-
-        <button type="submit" name="update">Editar</button>
-    </form>
-</div>
+            <button type="submit" name="update" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Editar</button>
+        </form>
+    </div>
 
 </body>
+
 </html>

@@ -1,9 +1,9 @@
 <?php
-include_once 'conectarBD.php';
+include_once 'conectar_bd.php';
 
-$id = $_GET['rn'];
-$query = "DELETE FROM ninos WHERE id = '$id'";
+$id = $_GET['sn'];
+$query = "DELETE FROM nino WHERE id_nino = '$id'";
 
 $data = mysqli_query($mysqli, $query);
-header("location: ./index.php?insert=succes");
+header("location: ./ninos.php?insert=succes");
 ?>

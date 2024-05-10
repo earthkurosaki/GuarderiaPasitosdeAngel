@@ -15,9 +15,7 @@ $desc_alergia = $_POST['desc_alergia'];
 $discapacidad = $_POST['discapacidad'];
 $desc_discapacidad = $_POST['desc_discapacidad'];
 
-$sqlinsert = "INSERT into nino (nombre, apellido, fecha_nac, edad, genero, nacionalidad, modo_nacer, cantidad_hermanos, nivel_educativo, alergia, desc_alergia, discapacidad, desc_discapacidad) VALUES ('$nombre', '$apellido', '$fechanac', '$edad', '$genero', '$nacionalidad',
-                                         '$modo_nacer', '$canthermanos', '$nivedu', '$alergia', '$desc_alergia',
-                                         '$discapacidad', '$desc_discapacidad')";
+$sqlinsert = "INSERT INTO nino (nombre, apellido, fecha_nac, edad, genero, nacionalidad, modo_nacer, cant_hermanos, niv_educativo, alergia, desc_alergia, discapacidad, desc_discapacidad) VALUES ('$nombre', '$apellido', '$fechanac', '$edad', '$genero', '$nacionalidad', '$modo_nacer', '$canthermanos', '$nivedu', '$alergia', '$desc_alergia', '$discapacidad', '$desc_discapacidad')";
 
 mysqli_query($mysqli, $sqlinsert);
 
