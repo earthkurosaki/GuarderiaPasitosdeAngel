@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +8,84 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+      
+/* CSS ADMIN */
+/*Sección de botones principales*/
+.detail {
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2.5px solid #f9f9f9;
+  text-align: center;
+  padding: 3.4rem 0;
+  margin: 2rem 0;
+  flex-direction: row;
+}
+
+.item img {
+  width: 150px;
+  height: 150px;
+  margin-left: 18px;
+}
+.item {
+  background-color: #f3eeee;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -moz-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  margin: 20px 20px 20px 20px;
+  padding: 3.4rem 0;
+  border-radius: 8px;
+  transition: var(--transition);
+  width: 250px;
+  display: inline-block;
+}
+
+.item:hover {
+  -webkit-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  -moz-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  transform: translateY(-15px);
+}
+
+.button .form_btn {
+  background: #1696e4;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 20px;
+  cursor: pointer;
+  width: 150px;
+  padding: 7px 8px;
+  font-size: 17px;
+  margin: 2px 0;
+  background: #1696e4;
+  border-radius: 5px;
+  font-family: "Poetsen One", sans-serif;
+}
+
+.button .form_btn:hover {
+  background: #fff;
+  color: #1696e4;
+}
+
+.item .button span {
+  display: block;
+}
+.item .button span:first-child {
+  font-size: 2.6rem;
+  letter-spacing: 2px;
+  color: #04896f;
+}
+.item .button span:last-child {
+  font-size: 0.85rem;
+  letter-spacing: 1;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 1200px) {
+  .detail .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
     </style>
     <title>Administración</title>
   </head>
@@ -16,7 +95,7 @@
         <div class="container">
           <div class="row">
             <div class="item">
-              <img src="../assets/imgs/children.png" />
+              <img src="./assets/imgs/children.png" />
 
               <div class="button">
                 <a href=""
@@ -31,7 +110,7 @@
             </div>
 
             <div class="item">
-              <img src="../assets/imgs/parents.png" />
+              <img src="./assets/imgs/parents.png" />
 
               <div class="button">
                 <a href=""
@@ -46,7 +125,7 @@
             </div>
 
             <div class="item">
-              <img src="../assets/imgs/multitasking.png" />
+              <img src="./assets/imgs/multitasking.png" />
 
               <div class="button">
                 <a href=""
@@ -61,7 +140,7 @@
             </div>
 
             <div class="item">
-              <img src="../assets/imgs/open-box.png" />
+              <img src="./assets/imgs/open-box.png" />
 
               <div class="button">
                 <a href=""
@@ -81,7 +160,7 @@
       <section class="detail">
         <div class="row">
           <div class="item">
-            <img src="../assets/imgs/automobile-with-wrench.png" />
+            <img src="./assets/imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
@@ -96,7 +175,7 @@
           </div>
 
           <div class="item">
-            <img src="../assets/imgs/automobile-with-wrench.png" />
+            <img src="./assets/imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
@@ -111,7 +190,7 @@
           </div>
 
           <div class="item">
-            <img src="../assets/imgs/automobile-with-wrench.png" />
+            <img src="./assets/imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
@@ -126,7 +205,7 @@
           </div>
 
           <div class="item">
-            <img src="../assets/imgs/automobile-with-wrench.png" />
+            <img src="./assets/imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""

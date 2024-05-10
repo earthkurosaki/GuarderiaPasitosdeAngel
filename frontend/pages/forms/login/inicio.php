@@ -3,16 +3,18 @@
 
 include('conecta.php');
 
-
 ($nombre = ($_POST['nombre']));
 ($contrasena = ($_POST['contrasena']));
 
+session_start();
+$_SESSION['nombre']= $nombre;
+
 $consult = "SELECT * FROM usuario where nombre = '$nombre' and contrasena = '$contrasena' and tipo_usuario = 'admin'";
-$resultad = mysqli_query($mysqli,$consult);
+$resultad = mysqli_query($mysqli,$consult); 
 $fis = mysqli_num_rows($resultad);
 
-if($filas){
-   header("location:admin.html");  
+if($fis){
+   header("location:admin.php");  
 }
 
 else{
