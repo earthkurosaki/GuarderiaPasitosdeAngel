@@ -15,10 +15,10 @@ $direccion= $_POST['direccion'];
 $telefono= $_POST['telefono'];
 $email= $_POST['email'];
 $estado= $_POST['estado'];
-$nino= $_POST['nino'];
 
 
-$sqlinsert = "INSERT INTO tutores VALUES (0, '$nombre', '$apellido', '$rp', '$fechanac', '$cedula', '$trabajo', '$cargo', '$nivel', '$profesion', '$direccion', '$telefono', '$email', '$estado', '$nino');";
+
+$sqlinsert = "INSERT INTO tutores VALUES (0, '$nombre', '$apellido', '$rp', '$fechanac', '$cedula', '$trabajo', '$cargo', '$nivel', '$profesion', '$direccion', '$telefono', '$email', '$estado');";
 
 mysqli_query($mysqli, $sqlinsert);
 
