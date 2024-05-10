@@ -515,46 +515,62 @@
           <p class="leading-relaxed mb-5 text-gray-600">
             Cualquier sugerencia o duda que tenga estamos aquí para servirle.
           </p>
+          <form action="insertar2.php" method="post">
           <div class="relative mb-4">
-            <label for="name" class="leading-7 text-sm text-gray-600"
+            <label for="nombre" class="leading-7 text-sm text-gray-600"
               >Nombre</label
             >
             <input
               type="text"
-              id="name"
-              name="name"
+              id="nombre"
+              name="nombre"
               class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
           <div class="relative mb-4">
-            <label for="email" class="leading-7 text-sm text-gray-600"
+            <label for="correo" class="leading-7 text-sm text-gray-600"
               >Correo</label
             >
             <input
               type="email"
-              id="email"
-              name="email"
+              id="correo"
+              name="correo"
+              class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+
+          <div class="relative mb-4">
+            <label for="telefono" class="leading-7 text-sm text-gray-600"
+              >Teléfono</label
+            >
+            <input
+              type="text"
+              id="telefono"
+              name="telefono"
               class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
           <div class="relative mb-4">
-            <label for="message" class="leading-7 text-sm text-gray-600"
+            <label for="mensaje" class="leading-7 text-sm text-gray-600"
               >Mensaje</label
             >
             <textarea
-              id="message"
-              name="message"
+              id="mensaje"
+              name="mensaje"
               class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button
+          <button type="submit"
             class="text-white bg-[#00b5ec] font-semibold border-0 py-2 px-6 focus:outline-none hover:bg-[#1696e4] rounded text-lg"
           >
             Enviar
           </button>
         </div>
+      </form>
       </div>
+  
     </section>
+  
 
     <!-- Footer -->
     <footer class="text-gray-600 body-font bg-blue-50">
