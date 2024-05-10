@@ -16,7 +16,7 @@
 
 <body class="bg-blue-50">
     <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold mb-8 text-blue-900">Formulario de niños</h1>
+        <h1 class="text-3xl font-bold mb-8 text-blue-900">Formulario de niño</h1>
         <!-- Datos del Niño -->
         <section class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 class="text-xl font-bold mb-4 text-blue-900">Datos del niño</h2>

@@ -39,7 +39,7 @@
 
     <!-- Formulario para editar -->
     <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold mb-8 text-gray-900">Modificar niño</h1>
+        <h1 class="text-3xl font-bold mb-8 text-gray-900">Modificar niños</h1>
         <form action="actualiza.php" method="post" class="space-y-4">
             <input type="hidden" name="id_nino" value="<?php echo $id ?>">
             <div>
