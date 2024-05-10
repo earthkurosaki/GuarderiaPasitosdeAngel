@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="modnacer" class="text-blue-900">Modo de nacer:</label>
-                        <select id="modnacer" name="modnacer"
+                        <select id="modnacer" name="modo_nacer"
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
                             required>
                             <option value="">Seleccione:</option>
@@ -79,6 +79,12 @@
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
                             required>
                     </div>
+                    <div class="form-group">
+                        <label for="nivedu" class="text-blue-900">Nivel educativo:</label>
+                        <input type="text" id="nivedu" name="nivedu"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
                 </div>
             </form>
         </section>
@@ -89,8 +95,8 @@
             <form action="insertar.php" method="post" class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="form-group">
-                        <label for="alergias" class="text-blue-900">¿Tiene alergias?</label>
-                        <select id="alergias" name="alergias"
+                        <label for="alergia" class="text-blue-900">¿Tiene alergias?</label>
+                        <select id="alergia" name="alergia"
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
                             required>
                             <option value="">Seleccione:</option>
@@ -118,17 +124,59 @@
                         <input type="text" id="desc_discapacidad" name="desc_discapacidad"
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none">
                     </div>
+
                 </div>
+                <div class="flex justify-center">
+                        <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Registrar
+                        </button>
+                    </div>
             </form>
         </section>
 
         <!-- Botón de enviar -->
-        <div class="flex justify-center">
-            <button type="submit"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Registrar
-            </button>
-        </div>
+
+
+        <h3>Lista de niños</h3>
+        <table border=1>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>FechaNac</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th>Nacionalidad</th>
+                <th>ModNacer</th>
+                <th>CantHermanos</th>
+                <th>NivEducativo</th>
+                <th>Alergia</th>
+                <th>Especificacion</th>
+                <th>Discapacidad</th>
+                <th>Especificacion</th>
+            </tr>
+
+
+            <?php
+            include_once 'conectar_bd.php';
+
+            $query = "SELECT * FROM nino";
+            $data = mysqli_query($mysqli, $query);
+            $total = mysqli_num_rows($data);
+            
+            if ($total != 0) {
+                while ($row = mysqli_fetch_assoc($data)) {
+                    echo "<tr> <td>" . $row['id'] . "</td> <td>" . $row['nombre'] .
+                        "</td> <td>" . $row['fecha_nac'] . "</td> <td>" . $row['edad'] .
+                        "</td> <td>" . $row['nacionalidad'] . "</td> <td>" . $row['genero'] .
+                        "</td> <td>" . $row['modo_nacer'] . "</td> <td>" . $row['cant_hermanos'] .
+                        "</td> <td>" . $row['alergias'] . "</td> <td>" . $row['especificacion'] .
+                        "</td> <td>" . $row['niv_educativo'] . 
+                        "</td> <td> <a href='delete.php?rn=$row[id]'>Borrar</td></tr>";
+                }
+            }
+            ?>
     </div>
 </body>
 
