@@ -8,7 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css2/formulario.css">
     <title>Inicio de Sesión</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+      
+/* CSS ADMIN */
+/*Sección de botones principales*/
+.detail {
+  justify-content: left;
+  
+  
+  text-align: center;
+  padding: 3.4rem 0;
+  margin: 2rem 0;
+  flex-direction: row;
+}
+
+</style>
+
+
 </head>
 <body>
     
@@ -52,6 +70,18 @@
     </main>
     <script src="js/script.js"></script>
 
-    
+    <footer>
+
+    <section class="detail">
+        <div class="container">
+        <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/">Volver</a>
+            </button>
+
+        </div>
+    </section>
+
+    </footer>
 </body>
 </html>

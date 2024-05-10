@@ -136,16 +136,14 @@ $estado= $row['estado_civil'];
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
                             required value="<?php echo $email?>">
                     </div>
+
                     <div class="form-group">
                         <label for="estado_civil" class="text-blue-900">Estado Civil:</label>
-                        <select id="estado_civil" name="estado_civil"
+                        <input type="text" id="estado_civil" name="estado_civil" 
                             class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
-                            required value="<?php echo $estado?>">
-                            <option value="">Seleccione:</option>
-                            <option value="1">Soltero</option>
-                            <option value="2">Casado</option>
-                        </select>
+                            required value="<?php echo $email?>">
                     </div>
+                    
                 </div>
                  <!-- Botón de editar -->
         <div class="flex justify-center">

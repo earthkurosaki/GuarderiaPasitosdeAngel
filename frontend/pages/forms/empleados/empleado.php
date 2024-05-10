@@ -127,6 +127,8 @@
     </a>
 </div>
 
+
+
                 </section>
 
             </form>
@@ -134,7 +136,11 @@
           
     <br>
    
-
+    <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/login/admin.php">Volver</a>
+            </button>
+        </div>
 
     
 </body>

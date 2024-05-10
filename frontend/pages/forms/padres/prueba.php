@@ -193,10 +193,11 @@
 
     <br>
     <br>
-
+<br>
+<br>
     <button type="submit"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/administracion.html">Volver</a>
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  flex justify-center">
+                <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/padres/admin2.php">Volver</a>
             </button>
         </div>
   

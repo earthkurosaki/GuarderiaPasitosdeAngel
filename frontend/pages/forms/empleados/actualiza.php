@@ -13,7 +13,7 @@ $query = "UPDATE `empleados` SET nombre='$_POST[nombre]', apellido='$_POST[apell
 
 if (mysqli_query($mysqli, $query)) {
     // Redireccionar a la página principal después de la inserción
-    header("location:./empleado.php?insert=success");
+    header("location:./registrosdelete.php?insert=success");
 } else {
     // Manejar el caso en el que no se han enviado datos del formulario
     echo "Error: No se han actualizado datos del formulario.";

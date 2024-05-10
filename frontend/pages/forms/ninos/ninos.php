@@ -121,7 +121,17 @@
                 <div class="flex justify-center">
                     <button type="submit"
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                       <a href="http://guarderiapasitosdeangel.test/frontend/pages/forms/padres/padres.php?insert=success">Registrar</a> 
+                       Registrar 
+                    </button>
+                        <br>
+                        <br>
+                    
+                </div>
+
+                <div class="flex justify-center">
+                <button 
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                       <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/padres/padres.php">Registrar tutor</a>
                     </button>
                 </div>
     </div>
@@ -189,6 +199,21 @@
     </div>
 
     </div>
+<br>
+<br>
+    <div class="flex justify-center">
+    <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/padres/padres.php">Volver</a>
+            </button>
+    
+    </div>
+<br>
+<br>
+    <footer>
+
+    </footer>
+        </div>
 </body>
 
 </html>

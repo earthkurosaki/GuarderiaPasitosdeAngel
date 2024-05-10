@@ -1,4 +1,12 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Registros</title>
+
+    <style>
     /* Estilos para la tabla y el encabezado */
     table {
         width: 100%;
@@ -87,7 +95,8 @@
 }
 
 </style>
-
+</head>
+<body>
 <h3>Lista de empleados</h3>
 
 <!-- Campo de búsqueda -->
@@ -159,6 +168,12 @@
     }
     ?>
 </table>
+<br>
+<br>
+<button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  flex justify-center">
+                <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/empleados/empleado.php?insert=success">Volver</a>
+            </button>
 
 <script>
     function searchTable() {
@@ -182,4 +197,12 @@
             }
         }
     }
+
+
 </script>
+
+</body>
+</html>
+
+
+

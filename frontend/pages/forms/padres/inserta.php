@@ -16,11 +16,18 @@ $telefono= $_POST['telefono'];
 $email= $_POST['email'];
 $estado= $_POST['estado'];
 
+session_start();
+$_SESSION['nombre'] = $nombre;
 
+$sqlinsert = "INSERT INTO tutores VALUES (0, '$nombre', '$apellido', '$rp', '$fechanac', '$cedula', '$trabajo', '$cargo', '$nivel', '$profesion', '$direccion', '$telefono', '$email', '$estado')";
 
-$sqlinsert = "INSERT INTO tutores VALUES (0, '$nombre', '$apellido', '$rp', '$fechanac', '$cedula', '$trabajo', '$cargo', '$nivel', '$profesion', '$direccion', '$telefono', '$email', '$estado');";
+$resultado = mysqli_query($mysqli, $sqlinsert);
 
-mysqli_query($mysqli, $sqlinsert);
+if($resultado){
+    header("location: admin2.php");  
+} else {
+    echo "Error: " . mysqli_error($mysqli);
+}
 
-header ("location:./padres.php?insert=success");
+mysqli_close($mysqli);
 ?>

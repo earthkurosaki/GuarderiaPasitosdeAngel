@@ -128,6 +128,8 @@
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Registrar
             </button>
+
+            
         </div>
 
                 </div>
@@ -137,11 +139,7 @@
        
         <!-- Botón de registros -->
 
-        <form action="prueba.php" method="post">
-<label for="emp">Buscar tutor:</label>
-    <input type="text" name="buscar" placeholder="ID">
-    <button type="submit" name="submit">Buscar</button>
-</form>
+  
         
     </div>
 </body>

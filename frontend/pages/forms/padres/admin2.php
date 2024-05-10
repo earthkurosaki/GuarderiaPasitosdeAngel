@@ -109,7 +109,7 @@
         <div class="container">
           <div class="row">
             <div class="item">
-              <img src="./assets/imgs/children.png" />
+              <img src="./imgs/children.png" alt="">
 
               <div class="button">
                 <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/ninos/ninos.php"
@@ -124,7 +124,7 @@
             </div>
 
             <div class="item">
-              <img src="./assets/imgs/parents.png" />
+              <img src="./imgs/parents.png" />
 
               <div class="button">
                 <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/padres/prueba.php"
@@ -139,7 +139,7 @@
             </div>
 
             <div class="item">
-              <img src="./assets/imgs/multitasking.png" />
+              <img src="./imgs/multitasking.png" />
 
               <div class="button">
                 <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/empleados/empleado.php"
@@ -162,7 +162,7 @@
       <section class="detail">
         <div class="row">
           <div class="item">
-            <img src="./assets/imgs/automobile-with-wrench.png" />
+            <img src="./imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
@@ -177,7 +177,7 @@
           </div>
 
           <div class="item">
-            <img src="./assets/imgs/automobile-with-wrench.png" />
+            <img src="./imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
@@ -192,7 +192,7 @@
           </div>
 
           <div class="item">
-            <img src="./assets/imgs/automobile-with-wrench.png" />
+            <img src="./imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
@@ -207,7 +207,7 @@
           </div>
 
           <div class="item">
-            <img src="./assets/imgs/automobile-with-wrench.png" />
+            <img src="./imgs/automobile-with-wrench.png" />
 
             <div class="button">
               <a href=""
