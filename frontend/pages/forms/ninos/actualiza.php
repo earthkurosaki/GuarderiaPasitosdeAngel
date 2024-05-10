@@ -1,7 +1,7 @@
 <?php
 
 include_once 'conectar_bd.php';
-$id = $_POST['id_nin'];
+$id = $_POST['id_nino'];
 
 if (isset($_POST['update'])) {
 
