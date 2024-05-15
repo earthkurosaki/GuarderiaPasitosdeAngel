@@ -4,7 +4,6 @@ include 'conecta.php';
 
 $nombre= $_POST['nombre'];
 $apellido= $_POST['apellido'];
-$rp= $_POST['rp'];
 $fechanac= $_POST['fechanac'];
 $cedula= $_POST['cedula'];
 $trabajo= $_POST['trabajo'];
@@ -19,7 +18,7 @@ $estado= $_POST['estado'];
 session_start();
 $_SESSION['nombre'] = $nombre;
 
-$sqlinsert = "INSERT INTO tutores VALUES (0, '$nombre', '$apellido', '$rp', '$fechanac', '$cedula', '$trabajo', '$cargo', '$nivel', '$profesion', '$direccion', '$telefono', '$email', '$estado')";
+$sqlinsert = "INSERT INTO tutores VALUES (0, '$nombre', '$apellido', '$fechanac', '$cedula', '$trabajo', '$cargo', '$nivel', '$profesion', '$direccion', '$telefono', '$email', '$estado')";
 
 $resultado = mysqli_query($mysqli, $sqlinsert);
 

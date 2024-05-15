@@ -118,7 +118,6 @@
         <th>ID</th>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>Parentesco</th>
         <th>Fecha de Nacimiento</th>
         <th>Cédula</th>
         <th>Lugar de Trabajo</th>
@@ -147,7 +146,6 @@
                 echo "<tr> <td>" . $row['id_tutor'] . 
                 "</td> <td>" . $row['nombre'] . 
                 "</td> <td>" . $row['apellido'] . 
-                "</td> <td>" . $row['relacion_parental'] .
                 "</td> <td>" . $row['fechanac'] . 
                 "</td> <td>" . $row['cedula'] . 
                 "</td> <td>" . $row['lugar_trabajo'] . 
