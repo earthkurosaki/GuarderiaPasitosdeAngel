@@ -32,7 +32,7 @@
   width: 150px;
   height: 150px;
   margin-left: 48px;
-  margin-top:
+  margin-top: 58px;
 }
 
 .p img {

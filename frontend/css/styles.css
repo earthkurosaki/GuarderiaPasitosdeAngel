@@ -1,6 +1,29 @@
 /* CSS INDEX */
 
 /* Agrega la clase .show para aplicar las animaciones */
+
+.detail {
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2.5px solid #f9f9f9;
+  text-align: center;
+  padding: 3.4rem 0;
+  margin: 2rem 0;
+  flex-direction: row;
+}
+
+.other {
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2.5px solid #f9f9f9;
+  text-align: center;
+  padding: 3.4rem 0;
+  margin: 2rem 0;
+  display: flex; /* Agregado */
+}
+
+
+
 .pp {
   opacity: 0;
   filter: blur(5px);

@@ -198,8 +198,8 @@
     </div>
 
     <!-- Services -->
-
-    <div class="pp">
+<section class="detail">
+<div class="pp">
     <section id="services">
       <h1
         class="aa text-3xl font-extrabold text-gray-900 sm:text-4xl text-center mt-14"
@@ -270,7 +270,9 @@
               completar sus tareas escolares con la ayuda de tutores
               calificados, fomentando un ambiente de apoyo y aprendizaje.
             </p>
+
           </div>
+          <section class="other">
           <div class="p-6 shadow-card">
             <img
               class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
@@ -291,6 +293,7 @@
               mientras los padres se ocupan de sus responsabilidades.
             </p>
           </div>
+
           <div class="p-6 shadow-card">
             <img
               class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
@@ -312,11 +315,18 @@
               crezcan y se diviertan durante las vacaciones escolares.
             </p>
           </div>
-        </div>
+
+          
+          </section>
+      
+          </div>
+                  
       </div>
     </section>
 
     </div>
+    
+</section>
     
     <!-- Album -->
 
