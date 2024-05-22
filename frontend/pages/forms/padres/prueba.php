@@ -112,6 +112,13 @@
     </form>
     </div>
 
+    <div class="btn">
+        <a href="fpdf/PruebaV.php">
+        <button type="" name="report" class=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Generar Reporte</button>
+        </a>
+        </div>
+
+
 <div class="table-container">
 <table border="0" id="employeeTable">
     <tr>
@@ -137,7 +144,7 @@
         include_once 'conecta.php';
      
 
-        $query = "SELECT * FROM tutores";
+        $query = "SELECT * FROM tutores ORDER BY nombre ASC, apellido ASC";
         $data = mysqli_query($mysqli, $query);
         $total = mysqli_num_rows($data);
 
