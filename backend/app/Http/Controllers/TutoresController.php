@@ -7,33 +7,32 @@ use App\Models\Tutores;
 
 class TutoresController extends Controller
 {
-    public function show($id_nino)
+    public function show($id_tutor)
     {
-        $nino = Tutores::find($id_nino);
-        return view('/nino/update', ['nino' => $nino]);
+        $tutor = Tutores::find($id_tutor);
+        return view('/tutores/update', ['tutor' => $tutor]);
     }
     public function store(Request $request)
     {
         $request->validate([
             'nombre' => 'required|string',
             'apellido' => 'required|string',
-            'fecha_nac' => 'required',
-            'edad' => 'required|numeric',
-            'genero' => 'required',
-            'nacionalidad' => 'required|string',
-            'modo_nacer' => 'required',
-            'cant_hermanos' => 'required|numeric',
-            'niv_educativo' => 'required|string',
-            'alergia' => 'required',
-            'desc_alergia' => 'nullable|string',
-            'discapacidad' => 'required',
-            'desc_discapacidad' => 'nullable|string',
+            'fechanac' => 'required',
+            'cedula' => 'required',
+            'lugar_trabajo' => 'required|string',
+            'cargo' => 'required|string',
+            'nivel_academico' => 'required|string',
+            'profesion' => 'nullable|string',
+            'direccion' => 'required|string',
+            'telefono' => 'required',
+            'email' => 'required',
+            'estado_civil' => 'required|string',
         ]);
 
-        $nino = new Nino($request->all());
-        $nino->save();
+        $tutor = new Tutores($request->all());
+        $tutor->save();
 
-        return view('/nino/view');
+        return view('/tutores/view');
     }
 
     public function update(Request $request, $id_nino)
@@ -56,7 +55,7 @@ class TutoresController extends Controller
         ]);
 
         //Buscar el registro existente
-        $nino = Nino::find($id_nino);
+        $nino = Tutores::find($id_nino);
         if ($nino) {
             $nino->nombre = $validatedData['nombre'];
             $nino->apellido = $validatedData['apellido'];
