@@ -1,17 +1,23 @@
 <x-app-layout>
-    <div class="sm:flex-auto bg-white p-6 rounded-lg shadow-md">
-        <h1 class="text-2xl font-bold leading-tight text-gray-900">{{ __('Actualizar niño') }}</h1>
-        <p class="mt-2 text-md text-gray-600">Actualiza los datos del niño.</p>
-    </div>
-
     <div class="py-12">
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
+            
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <form method="POST" action="{{ route('nino.update', ['id_nino' => $nino->id_nino]) }}">
                         @csrf
                         @method('PATCH')
                         <div class="space-y-6">
+                            <div class="sm:flex sm:items-center">
+                                <div class="sm:flex-auto">
+                                    <h1 class="text-2xl font-semibold leading-6 text-gray-900">{{ __('Niños') }}</h1>
+                                    <p class="mt-2 mb-5 text-sm text-gray-700">Actualiza un {{ __('niño') }}</p>
+                                </div>
+                                <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                                    <a type="button" href="{{ route('View') }}"
+                                        class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Atrás</a>
+                                </div>
+                            </div>
                             <div>
                                 <label class="block text-sm font-bold text-black">Nombre</label>
                                 <input type="text" placeholder="Nombre" name="nombre" id="nombre-{{ $nino->id_nino }}" value="{{ $nino->nombre }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>

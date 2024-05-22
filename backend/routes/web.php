@@ -25,7 +25,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view', function () {
     return view('nino/view');
-});
+})->name('View');
 
 Route::get('/registra', [NinoController::class, 'store'])->name('nino.store');
 
