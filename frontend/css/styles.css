@@ -27,14 +27,14 @@
 .pp {
   opacity: 0;
   filter: blur(5px);
-  transform: translateY(100%);
+  transform: translateX(100%);
   transition: opacity 0.5s, filter 1s, transform 1s;
 }
 
 .pp.show {
   opacity: 1;
   filter: blur(0);
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 /* Aplica las animaciones iniciales a los elementos */
