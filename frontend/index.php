@@ -9,6 +9,10 @@
     <script src="./js/tailwind.js"></script>
     <link rel="stylesheet" href="./css/styles.css" />
 
+    <!-- JavaScript -->
+
+   
+
     <!-- Carousel -->
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
@@ -83,8 +87,10 @@
     </header>
 
     <!-- Home -->
+
+    <div class="pp">
     <section
-      class="hero py-12 xl:p-12 xl:pb-0 overflow-hidden md:mt-7 mx-4"
+      class="aa hero py-12 xl:p-12 xl:pb-0 overflow-hidden md:mt-7 mx-4"
       id="home"
     >
       <div class="container mx-auto h-full">
@@ -115,8 +121,12 @@
       </div>
     </section>
 
+    </div>
+    
     <!-- About us -->
-    <section class="bg-[#ffffb5]" id="about">
+
+    <div class="pp">
+    <section class="aa bg-[#ffffb5]" id="about">
       <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
           <div class="mt-12 md:mt-0">
@@ -144,7 +154,10 @@
       </div>
     </section>
 
-    <section class="md:h-full flex items-center justify-center">
+    </div>
+    
+    <div class="pp">
+    <section class="aa md:h-full flex items-center justify-center">
       <div class="text-center mx-2 sm:mx-10 py-10">
         <div
           class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 mx-auto gap-8"
@@ -181,10 +194,15 @@
       </div>
     </section>
 
+    
+    </div>
+
     <!-- Services -->
+<section class="detail">
+<div class="pp">
     <section id="services">
       <h1
-        class="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center mt-14"
+        class="aa text-3xl font-extrabold text-gray-900 sm:text-4xl text-center mt-14"
       >
         Servicios
       </h1>
@@ -252,7 +270,9 @@
               completar sus tareas escolares con la ayuda de tutores
               calificados, fomentando un ambiente de apoyo y aprendizaje.
             </p>
+
           </div>
+          <section class="other">
           <div class="p-6 shadow-card">
             <img
               class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
@@ -273,6 +293,7 @@
               mientras los padres se ocupan de sus responsabilidades.
             </p>
           </div>
+
           <div class="p-6 shadow-card">
             <img
               class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
@@ -294,12 +315,23 @@
               crezcan y se diviertan durante las vacaciones escolares.
             </p>
           </div>
-        </div>
+
+          
+          </section>
+      
+          </div>
+                  
       </div>
     </section>
 
+    </div>
+    
+</section>
+    
     <!-- Album -->
-    <section class="my-8 md:h-full">
+
+    <div class="pp">
+    <section class="aa my-8 md:h-full">
       <h2
         class="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center mt-16"
       >
@@ -449,8 +481,12 @@
       </div>
     </section>
 
+    </div>
+    
     <!-- Contact -->
-    <section class="text-gray-600 body-font relative" id="contact">
+
+    <div class="pp">
+    <section class="aa text-gray-600 body-font relative" id="contact">
       <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
         <div
           class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative"
@@ -572,6 +608,8 @@
     </section>
   
 
+    </div>
+    
     <!-- Footer -->
     <footer class="text-gray-600 body-font bg-blue-50">
       <div
@@ -646,6 +684,20 @@
         }
       });
 
+      document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry);
+                    if (entry.isIntersecting){
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target); // Deja de observar el elemento después de activar la animación
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.pp');
+            hiddenElements.forEach((el) => observer.observe(el));
+        });
       /**
        * Metodo
        * @param {String} e - String

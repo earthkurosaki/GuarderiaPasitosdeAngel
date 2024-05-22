@@ -41,12 +41,7 @@
                             required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="rp" class="text-blue-900">Relación Parental:</label>
-                        <input type="text" id="rp" name="rp"
-                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
-                            required>
-                    </div>
+                    
 
                     <div class="form-group">
                         <label for="fechanac" class="text-blue-900">Fecha de Nacimiento:</label>

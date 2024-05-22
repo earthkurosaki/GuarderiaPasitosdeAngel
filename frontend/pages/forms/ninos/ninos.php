@@ -128,17 +128,12 @@
                     
                 </div>
 
-                <div class="flex justify-center">
-                <button 
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                       <a href="http://localhost/GuarderiaPasitosdeAngel/frontend/pages/forms/padres/padres.php">Registrar tutor</a>
-                    </button>
-                </div>
+               
     </div>
     </form>
     </section>
 
-    <div class="container mx-auto">
+  <!--  <div class="container mx-auto">
         <h3 class="text-lg font-bold mb-4">Lista de niños</h3>
         <div class="overflow-x-auto">
             <table class="w-full table-auto">
@@ -163,7 +158,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                    </*?php
                     include_once 'conectar_bd.php';
 
                     $query = "SELECT * FROM nino";
@@ -191,7 +186,7 @@
                             <td class='px-2 py-1'><a href='delete.php?sn=$row[id_nino]' class='text-red-500 hover:underline'>Borrar</a></td>
                         </tr>";
                         }
-                    }
+                    }*/
                     ?>
                 </tbody>
             </table>
@@ -200,7 +195,7 @@
 
     </div>
 <br>
-<br>
+<br> 
     <div class="flex justify-center">
     <button type="submit"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -214,6 +209,135 @@
 
     </footer>
         </div>
+                -->
+        
+        <!-- Sección de Padres            -->
+
+        
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8 text-blue-900">Registro de Tutores</h1>
+
+        <!-- Datos del Padre -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-bold mb-4 text-blue-900">Datos del tutor</h2>
+            <form action="inserta.php" method="post" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <div class="form-group">
+                        <label for="nombre" class="text-blue-900">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido" class="text-blue-900">Apellido:</label>
+                        <input type="text" id="fechanac" name="apellido"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                        <label for="fechanac" class="text-blue-900">Fecha de Nacimiento:</label>
+                        <input type="text" id="fechanac" name="fechanac" placeholder="YYYY/MM/dd"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cedula" class="text-blue-900">Cédula de Identidad:</label>
+                        <input type="text" id="cedula" name="cedula" 
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trabajo" class="text-blue-900">Lugar de Trabajo:</label>
+                        <input type="text" id="trabajo" name="trabajo"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargo" class="text-blue-900">Cargo:</label>
+                        <input type="text" id="cargo" name="cargo"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nivel" class="text-blue-900">Nivel Académico:</label>
+                        <input type="text" id="nivel" name="nivel"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profesion" class="text-blue-900">Profesión:</label>
+                        <input type="text" id="profesion" name="profesion" placeholder="Opcional"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion" class="text-blue-900">Dirección:</label>
+                        <input type="text" id="direccion" name="direccion" 
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono" class="text-blue-900">Teléfono:</label>
+                        <input type="text" id="telefono" name="telefono" 
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="text-blue-900">Dirección Email:</label>
+                        <input type="text" id="email" name="email" 
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado" class="text-blue-900">Estado Civil:</label>
+                        <select id="estado" name="estado"
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                            <option value="">Seleccione:</option>
+                            <option value="Si">Casado</option>
+                            <option value="No">Soltero</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rp" class="text-blue-900">Relación Parental:</label>
+                        <input type="text" id="rp" name="rp" 
+                            class="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-blue-500 focus:outline-none"
+                            required>
+                    </div>
+                    
+                    <div class="flex justify-center">
+            <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Registrar
+            </button>
+
+            
+        </div>
+
+                </div>
+            </form>
+        </section>
+
+       
+        <!-- Botón de registros -->
+
+  
+        
+    </div>
 </body>
 
 </html>

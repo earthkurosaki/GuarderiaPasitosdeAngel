@@ -22,10 +22,29 @@
   flex-direction: row;
 }
 
-.item img {
+/*.item img {
   width: 150px;
   height: 150px;
-  margin-left: 18px;
+  margin-left: 53px;
+}*/
+
+.n img {
+  width: 150px;
+  height: 150px;
+  margin-left: 48px;
+  margin-top: 58px;
+}
+
+.p img {
+  width: 150px;
+  height: 150px;
+  margin-left: 55px;
+}
+
+.e img {
+  width: 150px;
+  height: 150px;
+  margin-left: 55px;
 }
 .item {
   background-color: #f3eeee;
@@ -48,6 +67,68 @@
   transform: translateY(-15px);
 }
 
+.n {
+  background-color: #f3eeee;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -moz-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  margin: 20px 20px 20px 20px;
+  padding: 3.4rem 0;
+  border-radius: 8px;
+  transition: var(--transition);
+  width: 250px;
+  display: inline-block;
+}
+
+.n:hover {
+  -webkit-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  -moz-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  transform: translateY(-15px);
+}
+
+.p{
+  background-color: #f3eeee;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -moz-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  margin: 20px 20px 20px 20px;
+  padding: 3.4rem 0;
+  border-radius: 8px;
+  transition: var(--transition);
+  width: 250px;
+  display: inline-block;
+}
+
+.p:hover {
+  -webkit-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  -moz-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  transform: translateY(-15px);
+}
+
+.e{
+  background-color: #f3eeee;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  -moz-box-shadow: 0 1px 2px 0 rgba(90, 91, 95, 0.1);
+  margin: 20px 20px 20px 20px;
+  padding: 3.4rem 0;
+  border-radius: 8px;
+  transition: var(--transition);
+  width: 250px;
+  display: inline-block;
+}
+
+.e:hover {
+  -webkit-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  -moz-box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  box-shadow: 0 21px 19px -2px rgba(217, 217, 217, 1);
+  transform: translateY(-15px);
+}
 .button .form_btn {
   background: #1696e4;
   color: #fff;
@@ -108,7 +189,7 @@
       <section class="detail">
         <div class="container">
           <div class="row">
-            <div class="item">
+            <div  class="n">
               <img src="./assets/imgs/children.png" />
 
               <div class="button">
@@ -123,7 +204,7 @@
               </div>
             </div>
 
-            <div class="item">
+            <div  class="p">
               <img src="./assets/imgs/parents.png" />
 
               <div class="button">
@@ -138,7 +219,7 @@
               </div>
             </div>
 
-            <div class="item">
+            <div  class="e">
               <img src="./assets/imgs/multitasking.png" />
 
               <div class="button">
