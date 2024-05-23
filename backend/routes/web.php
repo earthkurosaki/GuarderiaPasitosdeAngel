@@ -28,11 +28,11 @@ Route::get('/view/nino', function () {
     return view('nino/view');
 })->name('View');
 
-Route::get('/registra', [NinoController::class, 'store'])->name('nino.store');
+Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
 
-Route::delete('/registra/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
+Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
+Route::get('/registra_nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
+Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
 
 
 //Rutas tutores
@@ -45,10 +45,10 @@ Route::get('/view/tutores', function () {
     return view('tutores/view');
 })->name('View');
 
-Route::get('/registra', [TutoresController::class, 'store'])->name('tutores.store');
+Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutores.store');
 
-Route::delete('/registra/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
-Route::get('/registra/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
-Route::patch('/registra/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
+Route::get('/registra_tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
+Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
 
 require __DIR__.'/auth.php';
