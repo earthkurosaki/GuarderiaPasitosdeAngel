@@ -21,4 +21,3 @@ mysqli_query($mysqli, $sqlinsert);
 
 header("location:./ninos.php?insert=success");
 
-?>
