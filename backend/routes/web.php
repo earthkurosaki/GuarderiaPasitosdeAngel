@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PuestosController;
 use App\Http\Controllers\TutoresController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,5 +51,21 @@ Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutore
 Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
 Route::get('/registra_tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
 Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+
+
+//Rutas puestos
+Route::get('/registrar', function () {
+    return view('puestos/form'); 
+})->name('Registrar');
+
+Route::get('/view/puestos', function () {
+    return view('puestos/view');
+})->name('View');
+
+Route::get('/registra_puesto', [PuestosController::class, 'store'])->name('puestos.store');
+
+Route::delete('/registra_puesto/{id_puesto}', [PuestosController::class , 'destroy'])->name('puestos.destroy');
+Route::get('/registra_puesto/{id_puesto}', [PuestosController::class , 'show'])->name('puestos.show');
+Route::patch('/registra_puesto/{id_puesto}', [PuestosController::class , 'update'])->name('puestos.update');
 
 require __DIR__.'/auth.php';
