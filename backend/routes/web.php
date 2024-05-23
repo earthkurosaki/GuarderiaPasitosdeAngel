@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ActividadesController;
+use App\Http\Controllers\GananciasController;
+use App\Http\Controllers\GastosController;
 use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PuestosController;
@@ -84,4 +87,53 @@ Route::get('/registra_servicio', [ServiciosController::class, 'store'])->name('s
 Route::delete('/registra_servicio/{id_servicio}', [ServiciosController::class , 'destroy'])->name('servicios.destroy');
 Route::get('/registra_servicio/{id_servicio}', [ServiciosController::class , 'show'])->name('servicios.show');
 Route::patch('/registra_servicio/{id_servicio}', [ServiciosController::class , 'update'])->name('servicios.update');
+
+
+//Rutas actividades
+Route::get('/registrar', function () {
+    return view('actividades/form'); 
+})->name('Registrar');
+
+Route::get('/view/actividades', function () {
+    return view('actividades/view');
+})->name('View');
+
+Route::get('/registra_actividades', [ActividadesController::class, 'store'])->name('actividades.store');
+
+Route::delete('/registra_actividades/{id_actividad}', [ActividadesController::class , 'destroy'])->name('actividades.destroy');
+Route::get('/registra_actividades/{id_actividad}', [ActividadesController::class , 'show'])->name('actividades.show');
+Route::patch('/registra_actividades/{id_actividad}', [ActividadesController::class , 'update'])->name('actividades.update');
+
+
+//Rutas ganancias
+Route::get('/registrar', function () {
+    return view('ganancias/form'); 
+})->name('Registrar');
+
+Route::get('/view/ganancias', function () {
+    return view('ganancias/view');
+})->name('View');
+
+Route::get('/registra_ganancias', [GananciasController::class, 'store'])->name('ganancias.store');
+
+Route::delete('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'destroy'])->name('ganancias.destroy');
+Route::get('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'show'])->name('ganancias.show');
+Route::patch('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'update'])->name('ganancias.update');
+
+
+//Rutas gastos
+Route::get('/registrar', function () {
+    return view('gastos/form'); 
+})->name('Registrar');
+
+Route::get('/view/gastos', function () {
+    return view('gastos/view');
+})->name('View');
+
+Route::get('/registra_gastos', [GastosController::class, 'store'])->name('gastos.store');
+
+Route::delete('/registra_gastos/{id_gasto}', [GastosController::class , 'destroy'])->name('gastos.destroy');
+Route::get('/registra_gastos/{id_gasto}', [GastosController::class , 'show'])->name('gastos.show');
+Route::patch('/registra_gastos/{id_gasto}', [GastosController::class , 'update'])->name('gastos.update');
+
 require __DIR__.'/auth.php';
