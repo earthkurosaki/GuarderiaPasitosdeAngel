@@ -1,11 +1,11 @@
 <x-app-layout>
     @php
-        $puesto = DB::select('select * from puestos');
+        $servicio = DB::select('select * from servicios');
     @endphp
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Puestos') }}
+            {{ __('Servicios') }}
         </h2>
     </x-slot>
 
@@ -15,8 +15,8 @@
                 <div class="w-full">
                     <div class="sm:flex sm:items-center">
                         <div class="sm:flex-auto">
-                            <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Puestos') }}</h1>
-                            <p class="mt-2 text-sm text-gray-700">Lista de todos los {{ __('puestos') }}</p>
+                            <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Servicios') }}</h1>
+                            <p class="mt-2 text-sm text-gray-700">Lista de todos los {{ __('servicios') }}</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                             <a type="button" href="{{ route('Registrar') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
@@ -30,23 +30,25 @@
                                     <thead>
                                         <tr>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Id</th>
-                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Puesto</th>
-                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Desc_Puesto</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Nombre</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Costo</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Detalle</th>
                                             <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
-                                        @foreach ($puesto as $puesto)
+                                        @foreach ($servicio as $servicio)
                                             <tr class="even:bg-gray-50">
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $puesto->id_puesto }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $puesto->puesto }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $puesto->descpuesto }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $servicio->id_servicio }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $servicio->nombre }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $servicio->costo }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $servicio->detalle }}</td>
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                                                    <a href="{{ route('puestos.show', $puesto->id_puesto) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Editar') }}</a>
-                                                    <form action="{{ route('puestos.destroy', $puesto->id_puesto) }}" method="POST" class="inline">
+                                                    <a href="{{ route('servicios.show', $servicio->id_servicio) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Editar') }}</a>
+                                                    <form action="{{ route('servicios.destroy', $servicio->id_servicio) }}" method="POST" class="inline">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('puestos.destroy', $puesto->id_puesto) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('¿Quieres eliminar este dato?') ? this.closest('form').submit() : false;">{{ __('Borrar') }}</a>
+                                                        <a href="{{ route('servicios.destroy', $servicio->id_servicio) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('¿Quieres eliminar este dato?') ? this.closest('form').submit() : false;">{{ __('Borrar') }}</a>
                                                     </form>
                                                 </td>
                                             </tr>

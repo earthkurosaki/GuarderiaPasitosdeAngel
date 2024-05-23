@@ -3,6 +3,7 @@
 use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PuestosController;
+use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TutoresController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,4 +69,19 @@ Route::delete('/registra_puesto/{id_puesto}', [PuestosController::class , 'destr
 Route::get('/registra_puesto/{id_puesto}', [PuestosController::class , 'show'])->name('puestos.show');
 Route::patch('/registra_puesto/{id_puesto}', [PuestosController::class , 'update'])->name('puestos.update');
 
+
+//Rutas servicios
+Route::get('/registrar', function () {
+    return view('servicios/form'); 
+})->name('Registrar');
+
+Route::get('/view/servicios', function () {
+    return view('servicios/view');
+})->name('View');
+
+Route::get('/registra_servicio', [ServiciosController::class, 'store'])->name('servicios.store');
+
+Route::delete('/registra_servicio/{id_servicio}', [ServiciosController::class , 'destroy'])->name('servicios.destroy');
+Route::get('/registra_servicio/{id_servicio}', [ServiciosController::class , 'show'])->name('servicios.show');
+Route::patch('/registra_servicio/{id_servicio}', [ServiciosController::class , 'update'])->name('servicios.update');
 require __DIR__.'/auth.php';
