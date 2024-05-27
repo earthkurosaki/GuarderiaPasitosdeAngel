@@ -1,8 +1,10 @@
-<?php
 
+
+<?php 
 use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TutoresController;
+use App\Http\Controllers\EmpleadosController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,36 +21,49 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Rutas niños
-Route::get('/registrar', function () {
+// Rutas niños
+Route::get('/registrar/nino', function () {
     return view('nino/form');
-})->name('Registrar');
+})->name('nino.registrar');
 
 Route::get('/view/nino', function () {
     return view('nino/view');
-})->name('View');
+})->name('nino.view');
 
-Route::get('/registra', [NinoController::class, 'store'])->name('nino.store');
+Route::post('/registra/nino', [NinoController::class, 'store'])->name('nino.store');
 
-Route::delete('/registra/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
+Route::delete('/registra/nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
+Route::get('/registra/nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
+Route::patch('/registra/nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
 
-
-//Rutas tutores
-Route::get('/registrar', function () {
-    //Se va a llamar el nombredelacarpeta/nombredelarchivo
+// Rutas tutores
+Route::get('/registrar/tutor', function () {
     return view('tutores/form'); 
-})->name('Registrar');
+})->name('tutor.registrar');
 
 Route::get('/view/tutores', function () {
     return view('tutores/view');
-})->name('View');
+})->name('tutor.view');
 
-Route::get('/registra', [TutoresController::class, 'store'])->name('tutores.store');
+Route::post('/registra/tutor', [TutoresController::class, 'store'])->name('tutores.store');
 
-Route::delete('/registra/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
-Route::get('/registra/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
-Route::patch('/registra/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+Route::delete('/registra/tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
+Route::get('/registra/tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
+Route::patch('/registra/tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+
+// Rutas empleados
+Route::get('/registrar/empleado', function () {
+    return view('empleados/form'); 
+})->name('empleado_reg');
+
+Route::get('/view/empleados', function () {
+    return view('empleados/view');
+})->name('empleado.view');
+
+Route::post('/registra/empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
+
+Route::delete('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
+Route::get('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'show'])->name('empleados.show');
+Route::patch('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'update'])->name('empleados.update');
 
 require __DIR__.'/auth.php';
