@@ -5,6 +5,7 @@ use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TutoresController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\PagoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -65,5 +66,20 @@ Route::post('/registra/empleado', [EmpleadosController::class, 'store'])->name('
 Route::delete('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
 Route::get('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'show'])->name('empleados.show');
 Route::patch('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'update'])->name('empleados.update');
+
+// Rutas pagos
+Route::get('/registrar/pago', function () {
+    return view('pagos/form'); 
+})->name('pago_reg');
+
+Route::get('/view/pagos', function () {
+    return view('pagos/view');
+})->name('pago.view');
+
+Route::post('/registra/pago', [PagoController::class, 'store'])->name('pagos.store');
+
+Route::delete('/registra/pago/{id_pago}', [PagoController::class , 'destroy'])->name('pagos.destroy');
+Route::get('/registra/pago/{id_pago}', [PagoController::class , 'show'])->name('pagos.show');
+Route::patch('/registra/pago/{id_pago}', [PagoController::class , 'update'])->name('pagos.update');
 
 require __DIR__.'/auth.php';
