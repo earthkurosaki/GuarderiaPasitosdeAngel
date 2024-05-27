@@ -41,6 +41,7 @@ class TutoresController extends Controller
         $validatedData = $request->validate([
             'nombre' => 'required|string',
             'apellido' => 'required|string',
+<<<<<<< HEAD
             'fecha_nac' => 'required',
             'cedula' => 'required|numeric',
             'lugar_trabajo' => 'required',
@@ -50,6 +51,17 @@ class TutoresController extends Controller
             'direccion' => 'required|string',
             'telefono' => 'required|numeric',
             'email' => 'nullable|string',
+=======
+            'fechanac' => 'required',
+            'cedula' => 'required',
+            'lugar_trabajo' => 'required|string',
+            'cargo' => 'required|string',
+            'nivel_academico' => 'required|string',
+            'profesion' => 'nullable|string',
+            'direccion' => 'required|string',
+            'telefono' => 'required',
+            'email' => 'required',
+>>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
             'estado_civil' => 'required|string',
         ]);
 
@@ -58,7 +70,11 @@ class TutoresController extends Controller
         if ($tutor) {
             $tutor->nombre = $validatedData['nombre'];
             $tutor->apellido = $validatedData['apellido'];
+<<<<<<< HEAD
             $tutor->fecha_nac = $validatedData['fecha_nac'];
+=======
+            $tutor->fechanac = $validatedData['fechanac'];
+>>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
             $tutor->cedula = $validatedData['cedula'];
             $tutor->lugar_trabajo = $validatedData['lugar_trabajo'];
             $tutor->cargo = $validatedData['cargo'];
@@ -71,9 +87,15 @@ class TutoresController extends Controller
 
             $tutor->save();
 
+<<<<<<< HEAD
             return view('tutor/view', ['tutor' => $tutor]);
         } else {
             return view('tutor/view')->with('error', 'Registro no encontrado');
+=======
+            return view('tutores/view', ['tutor' => $tutor]);
+        } else {
+            return view('tutores/view')->with('error', 'Registro no encontrado');
+>>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
         }
     }
 
@@ -83,9 +105,15 @@ class TutoresController extends Controller
 
         if ($tutor) {
             $tutor->delete();
+<<<<<<< HEAD
             return view('/tutor/view')->with('success', 'Todo deleted successfully');
         } else {
             return view('/tutor/view')->with('error', 'Registro no encontrado');
+=======
+            return view('/tutores/view')->with('success', 'Todo deleted successfully');
+        } else {
+            return view('/tutores/view')->with('error', 'Registro no encontrado');
+>>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
         }
 
     }
