@@ -28,21 +28,23 @@ Route::middleware('auth')->group(function () {
 // Rutas niños
 Route::get('/registrar/nino', function () {
     return view('nino/form');
-})->name('nino.registrar');
+})->name('registrar_nino');
 
 Route::get('/view/nino', function () {
     return view('nino/view');
 })->name('View_Nino');
 
-Route::delete('/registra/nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra/nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra/nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
+Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
+
+Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
+Route::get('/registra_nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
+Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
 
 
 // Rutas tutores
 Route::get('/registrar/tutor', function () {
     return view('tutores/form'); 
-})->name('tutor.registrar');
+})->name('registrar_tutor');
 
 Route::get('/view/tutores', function () {
     return view('tutores/view');
@@ -56,9 +58,9 @@ Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update']
 
 
 //Rutas puestos
-Route::get('/registrar', function () {
+Route::get('/registrar/puesto', function () {
     return view('puestos/form'); 
-})->name('Registrar');
+})->name('registrar_puesto');
 
 Route::get('/view/puestos', function () {
     return view('puestos/view');
@@ -72,9 +74,9 @@ Route::patch('/registra_puesto/{id_puesto}', [PuestosController::class , 'update
 
 
 //Rutas servicios
-Route::get('/registrar', function () {
+Route::get('/registrar/servicio', function () {
     return view('servicios/form'); 
-})->name('Registrar');
+})->name('registrar_servicio');
 
 Route::get('/view/servicios', function () {
     return view('servicios/view');
@@ -88,9 +90,9 @@ Route::patch('/registra_servicio/{id_servicio}', [ServiciosController::class , '
 
 
 //Rutas actividades
-Route::get('/registrar', function () {
+Route::get('/registrar/actividad', function () {
     return view('actividades/form'); 
-})->name('Registrar');
+})->name('registrar_actividad');
 
 Route::get('/view/actividades', function () {
     return view('actividades/view');
@@ -104,9 +106,9 @@ Route::patch('/registra_actividades/{id_actividad}', [ActividadesController::cla
 
 
 //Rutas ganancias
-Route::get('/registrar', function () {
+Route::get('/registrar/ganancia', function () {
     return view('ganancias/form'); 
-})->name('Registrar');
+})->name('registrar_ganancia');
 
 Route::get('/view/ganancias', function () {
     return view('ganancias/view');
@@ -120,9 +122,9 @@ Route::patch('/registra_ganancias/{id_ganancia}', [GananciasController::class , 
 
 
 //Rutas gastos
-Route::get('/registrar', function () {
+Route::get('/registrar/gasto', function () {
     return view('gastos/form'); 
-})->name('Registrar');
+})->name('registrar_gasto');
 
 Route::get('/view/gastos', function () {
     return view('gastos/view');
