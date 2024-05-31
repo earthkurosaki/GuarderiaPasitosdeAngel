@@ -83,11 +83,9 @@
             <div class="p-2">
                 <!-- Page Heading -->
                 @if (isset($header))
-                <header class="bg-white shadow">
                         <div class="max-w-7xl py-6 px-e sm:px-6 lg:px-8">
                             {{ $header }}
-                        </div>
-                </header>        
+                        </div>       
                 @endif
 
                 <!-- Page Content -->
