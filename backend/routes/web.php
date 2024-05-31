@@ -31,7 +31,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/nino', function () {
     return view('nino/view');
-})->name('View');
+})->name('View_Nino');
 
 Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
 
@@ -48,7 +48,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/tutores', function () {
     return view('tutores/view');
-})->name('View');
+})->name('View_Tutores');
 
 Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutores.store');
 
@@ -64,7 +64,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/puestos', function () {
     return view('puestos/view');
-})->name('View');
+})->name('View_Puestos');
 
 Route::get('/registra_puesto', [PuestosController::class, 'store'])->name('puestos.store');
 
@@ -80,7 +80,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/servicios', function () {
     return view('servicios/view');
-})->name('View');
+})->name('View_Servicios');
 
 Route::get('/registra_servicio', [ServiciosController::class, 'store'])->name('servicios.store');
 
@@ -96,7 +96,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/actividades', function () {
     return view('actividades/view');
-})->name('View');
+})->name('View_Actividades');
 
 Route::get('/registra_actividades', [ActividadesController::class, 'store'])->name('actividades.store');
 
@@ -112,7 +112,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/ganancias', function () {
     return view('ganancias/view');
-})->name('View');
+})->name('View_Ganancias');
 
 Route::get('/registra_ganancias', [GananciasController::class, 'store'])->name('ganancias.store');
 
@@ -128,7 +128,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/gastos', function () {
     return view('gastos/view');
-})->name('View');
+})->name('View_Gastos');
 
 Route::get('/registra_gastos', [GastosController::class, 'store'])->name('gastos.store');
 
