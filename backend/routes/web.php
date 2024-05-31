@@ -1,12 +1,7 @@
-
-<<<<<<< HEAD
-
 <?php 
-=======
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\GananciasController;
 use App\Http\Controllers\GastosController;
->>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
 use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PuestosController;
@@ -37,21 +32,12 @@ Route::get('/registrar/nino', function () {
 
 Route::get('/view/nino', function () {
     return view('nino/view');
-})->name('nino.view');
-
-<<<<<<< HEAD
-Route::post('/registra/nino', [NinoController::class, 'store'])->name('nino.store');
+})->name('View_Nino');
 
 Route::delete('/registra/nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
 Route::get('/registra/nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
 Route::patch('/registra/nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
-=======
-Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
 
-Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra_nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
->>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
 
 // Rutas tutores
 Route::get('/registrar/tutor', function () {
@@ -60,45 +46,8 @@ Route::get('/registrar/tutor', function () {
 
 Route::get('/view/tutores', function () {
     return view('tutores/view');
-})->name('tutor.view');
+})->name('View_Tutores');
 
-<<<<<<< HEAD
-Route::post('/registra/tutor', [TutoresController::class, 'store'])->name('tutores.store');
-
-Route::delete('/registra/tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
-Route::get('/registra/tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
-Route::patch('/registra/tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
-
-// Rutas empleados
-Route::get('/registrar/empleado', function () {
-    return view('empleados/form'); 
-})->name('empleado_reg');
-
-Route::get('/view/empleados', function () {
-    return view('empleados/view');
-})->name('empleado.view');
-
-Route::post('/registra/empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
-
-Route::delete('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
-Route::get('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'show'])->name('empleados.show');
-Route::patch('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'update'])->name('empleados.update');
-
-// Rutas pagos
-Route::get('/registrar/pago', function () {
-    return view('pagos/form'); 
-})->name('pago_reg');
-
-Route::get('/view/pagos', function () {
-    return view('pagos/view');
-})->name('pago.view');
-
-Route::post('/registra/pago', [PagoController::class, 'store'])->name('pagos.store');
-
-Route::delete('/registra/pago/{id_pago}', [PagoController::class , 'destroy'])->name('pagos.destroy');
-Route::get('/registra/pago/{id_pago}', [PagoController::class , 'show'])->name('pagos.show');
-Route::patch('/registra/pago/{id_pago}', [PagoController::class , 'update'])->name('pagos.update');
-=======
 Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutores.store');
 
 Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
@@ -113,7 +62,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/puestos', function () {
     return view('puestos/view');
-})->name('View');
+})->name('View_Puestos');
 
 Route::get('/registra_puesto', [PuestosController::class, 'store'])->name('puestos.store');
 
@@ -129,7 +78,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/servicios', function () {
     return view('servicios/view');
-})->name('View');
+})->name('View_Servicios');
 
 Route::get('/registra_servicio', [ServiciosController::class, 'store'])->name('servicios.store');
 
@@ -145,7 +94,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/actividades', function () {
     return view('actividades/view');
-})->name('View');
+})->name('View_Actividades');
 
 Route::get('/registra_actividades', [ActividadesController::class, 'store'])->name('actividades.store');
 
@@ -161,7 +110,7 @@ Route::get('/registrar', function () {
 
 Route::get('/view/ganancias', function () {
     return view('ganancias/view');
-})->name('View');
+})->name('View_Ganancias');
 
 Route::get('/registra_ganancias', [GananciasController::class, 'store'])->name('ganancias.store');
 
@@ -177,13 +126,12 @@ Route::get('/registrar', function () {
 
 Route::get('/view/gastos', function () {
     return view('gastos/view');
-})->name('View');
+})->name('View_Gastos');
 
 Route::get('/registra_gastos', [GastosController::class, 'store'])->name('gastos.store');
 
 Route::delete('/registra_gastos/{id_gasto}', [GastosController::class , 'destroy'])->name('gastos.destroy');
 Route::get('/registra_gastos/{id_gasto}', [GastosController::class , 'show'])->name('gastos.show');
 Route::patch('/registra_gastos/{id_gasto}', [GastosController::class , 'update'])->name('gastos.update');
->>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
 
 require __DIR__.'/auth.php';
