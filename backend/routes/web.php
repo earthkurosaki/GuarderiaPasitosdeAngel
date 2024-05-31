@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\GananciasController;
 use App\Http\Controllers\GastosController;
@@ -8,6 +7,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PuestosController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TutoresController;
+use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\PagoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,27 +25,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Rutas niños
-Route::get('/registrar', function () {
+// Rutas niños
+Route::get('/registrar/nino', function () {
     return view('nino/form');
-})->name('Registrar');
+})->name('nino.registrar');
 
 Route::get('/view/nino', function () {
     return view('nino/view');
 })->name('View_Nino');
 
-Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
-
-Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra_nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
+Route::delete('/registra/nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
+Route::get('/registra/nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
+Route::patch('/registra/nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
 
 
-//Rutas tutores
-Route::get('/registrar', function () {
-    //Se va a llamar el nombredelacarpeta/nombredelarchivo
+// Rutas tutores
+Route::get('/registrar/tutor', function () {
     return view('tutores/form'); 
-})->name('Registrar');
+})->name('tutor.registrar');
 
 Route::get('/view/tutores', function () {
     return view('tutores/view');
