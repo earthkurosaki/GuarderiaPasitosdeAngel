@@ -26,9 +26,9 @@
 
 <body class="font-sans antialiased">
     <div class="flex" id="wrapper" x-data="{ isOpen: true }">
-        <div id="sidebar" class="h-screen overflow-y-auto bg-gray-100 transition-all duration-200"
+        <div id="sidebar" class="h-screen overflow-y-auto bg-[#dff6fc] transition-all duration-200"
             :class="isOpen ? 'w-48' : 'w-0'">
-            <div class="w-full h-auto p-4 flex justify-center bg-gray-100">
+            <div class="w-full h-auto p-4 flex justify-center bg-[#dff6fc]">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -39,7 +39,7 @@
             @include('layouts.sidebar')
         </div>
         <div id="body" class="w-full h-screen overflow-y-auto transition-all duration-200">
-            <div class="w-full h-auto p-4 flex justify-between bg-gray-100">
+            <div class="w-full h-auto p-4 flex justify-between bg-white">
                 <button @click.prevent="isOpen = !isOpen"><ion-icon name="menu-outline"
                         class="text-3xl cursor-pointer block"></ion-icon></button>
                 <!-- Settings Dropdown -->
@@ -49,7 +49,6 @@
                             <button
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>Hola, {{ Auth::user()->name }}</div>
-
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
@@ -84,11 +83,11 @@
             <div class="p-2">
                 <!-- Page Heading -->
                 @if (isset($header))
-                    <header class="bg-white shadow">
-                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <header class="bg-white shadow">
+                        <div class="max-w-7xl py-6 px-e sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>
-                    </header>
+                </header>        
                 @endif
 
                 <!-- Page Content -->
