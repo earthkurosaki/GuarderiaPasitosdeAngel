@@ -8,7 +8,11 @@ class EmpleadosController extends Controller
 {
     public function show($id_empleado)
     {
+<<<<<<< Updated upstream
         $empleado = Empleados::find($id_empleado);
+=======
+        $empleado = Empleados::find($id_empleados);
+>>>>>>> Stashed changes
         return view('/empleados/update', ['empleado' => $empleado]);
     }
 

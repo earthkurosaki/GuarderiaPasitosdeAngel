@@ -4,14 +4,14 @@
             
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="POST" action="{{ route('nino.update', ['id_nino' => $nino->id_nino]) }}">
+                    <form method="POST" action="{{ route('pagos.update', ['id_pago' => $pago->id_pago]) }}">
                         @csrf
                         @method('PATCH')
                         <div class="space-y-6">
                             <div class="sm:flex sm:items-center">
                                 <div class="sm:flex-auto">
-                                    <h1 class="text-2xl font-semibold leading-6 text-gray-900">{{ __('Niños') }}</h1>
-                                    <p class="mt-2 mb-5 text-sm text-gray-700">Actualiza un {{ __('niño') }}</p>
+                                    <h1 class="text-2xl font-semibold leading-6 text-gray-900">{{ __('Pagos') }}</h1>
+                                    <p class="mt-2 mb-5 text-sm text-gray-700">Actualiza un {{ __('pago') }}</p>
                                 </div>
                                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                     <a type="button" href="{{ route('View') }}"
@@ -19,8 +19,8 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-black">Nombre</label>
-                                <input type="text" placeholder="Nombre" name="nombre" id="nombre-{{ $nino->id_nino }}" value="{{ $nino->nombre }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <label class="block text-sm font-bold text-black">Tutor</label>
+                                <input type="number" placeholder="Tutor" name="tutor" id="tutor-{{ $pago->id_pago }}" value="{{ $pago->id_tutor }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>
@@ -38,62 +38,6 @@
                                 <input type="number" placeholder="Edad" name="edad" id="edad-{{ $nino->id_nino }}" value="{{ $nino->edad }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
-                            <div>
-                                <label class="block text-sm font-bold text-black">Género</label>
-                                <select name="genero" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="Masculino" {{ $nino->genero == 'Masculino' ? 'selected' : '' }}>Masculino</option>
-                                    <option value="Femenino" {{ $nino->genero == 'Femenino' ? 'selected' : '' }}>Femenino</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">Nacionalidad</label>
-                                <input type="text" placeholder="Nacionalidad" name="nacionalidad" id="nacionalidad-{{ $nino->id_nino }}" value="{{ $nino->nacionalidad }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">Modo de nacer</label>
-                                <select name="modo_nacer" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="Natural" {{ $nino->modo_nacer == 'Natural' ? 'selected' : '' }}>Natural</option>
-                                    <option value="Cesárea" {{ $nino->modo_nacer == 'Cesárea' ? 'selected' : '' }}>Cesárea</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">Cantidad de hermanos</label>
-                                <input type="number" placeholder="Cantidad de hermanos" name="cant_hermanos" id="cant_hermanos-{{ $nino->id_nino }}" value="{{ $nino->cant_hermanos }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">Nivel educativo</label>
-                                <input type="text" placeholder="Nivel educativo" name="niv_educativo" id="niv_educativo-{{ $nino->id_nino }}" value="{{ $nino->niv_educativo }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">¿Tiene alergias?</label>
-                                <select name="alergia" id="alergia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="Sí" {{ $nino->alergia == 'Sí' ? 'selected' : '' }}>Sí</option>
-                                    <option value="No" {{ $nino->alergia == 'No' ? 'selected' : '' }}>No</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">Descripción de alergia</label>
-                                <input type="text" placeholder="Descripción de alergia" name="desc_alergia" id="desc_alergia-{{ $nino->id_nino }}" value="{{ $nino->desc_alergia }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">¿Tiene discapacidad?</label>
-                                <select name="discapacidad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="Sí" {{ $nino->discapacidad == 'Sí' ? 'selected' : '' }}>Sí</option>
-                                    <option value="No" {{ $nino->discapacidad == 'No' ? 'selected' : '' }}>No</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-black">Descripción de discapacidad</label>
-                                <input type="text" placeholder="Descripción de discapacidad" name="desc_discapacidad" id="desc_discapacidad-{{ $nino->id_nino }}" value="{{ $nino->desc_discapacidad }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
-                            </div>
                             
                             <div class="mt-6 flex items-center gap-4">
                                 <x-primary-button>Actualizar</x-primary-button>

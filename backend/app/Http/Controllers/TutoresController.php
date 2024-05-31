@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Tutores;
-
 class TutoresController extends Controller
 {
     public function show($id_tutor)
@@ -28,10 +25,8 @@ class TutoresController extends Controller
             'email' => 'required',
             'estado_civil' => 'required|string',
         ]);
-
         $tutor = new Tutores($request->all());
         $tutor->save();
-
         return view('/tutores/view');
     }
 
@@ -71,11 +66,17 @@ class TutoresController extends Controller
 
             $tutor->save();
 
+<<<<<<< Updated upstream
 
             return view('tutores/view', ['tutor' => $tutor]);
         } else {
             return view('tutores/view')->with('error', 'Registro no encontrado');
 
+=======
+            return view('tutores/view', ['tutor' => $tutor]);
+        } else {
+            return view('tutores/view')->with('error', 'Registro no encontrado');
+>>>>>>> Stashed changes
         }
     }
 
@@ -91,5 +92,4 @@ class TutoresController extends Controller
         }
 
     }
-
 }
