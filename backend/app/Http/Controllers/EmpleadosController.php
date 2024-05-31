@@ -6,10 +6,10 @@ use App\Models\Empleados;
 
 class EmpleadosController extends Controller
 {
-    public function show($id_empleados)
+    public function show($id_empleado)
     {
-        $empleado = Empleados::find($id_empleados);
-        return view('/empleado/update', ['empleado' => $empleado]);
+        $empleado = Empleados::find($id_empleado);
+        return view('/empleados/update', ['empleado' => $empleado]);
     }
 
     
@@ -21,7 +21,7 @@ class EmpleadosController extends Controller
             'cedula' => 'required',
             'fechanac' => 'required',
             'genero' => 'required|string',
-            'direccion' => 'required|string',
+            'dirreccion' => 'required|string',
             'telefono' => 'required',
             'correo_electronico' => 'required|string',
             'fechaingreso' => 'required',
@@ -29,15 +29,16 @@ class EmpleadosController extends Controller
             'foracademica' => 'required|string',
             'teleemergencia' => 'required',
             'id_puesto' => 'required|string',
+            'sueldo_base' => 'required',
         ]);
 
         $empleado = new Empleados($request->all());
         $empleado->save();
 
-        return view('/empleado/view');
+        return view('/empleados/view');
     }
 
-    public function update(Request $request, $id_empleados)
+    public function update(Request $request, $id_empleado)
     {
         //Validar el request
         $validatedData = $request->validate([
@@ -46,7 +47,7 @@ class EmpleadosController extends Controller
             'cedula' => 'required',
             'fechanac' => 'required',
             'genero' => 'required|string',
-            'direccion' => 'required|string',
+            'dirreccion' => 'required|string',
             'telefono' => 'required',
             'correo_electronico' => 'required|string',
             'fechaingreso' => 'required',
@@ -54,17 +55,18 @@ class EmpleadosController extends Controller
             'foracademica' => 'required|string',
             'teleemergencia' => 'required',
             'id_puesto' => 'required|string',
+            'sueldo_base' => 'required',
         ]);
 
         //Buscar el registro existente
-        $empleado = Empleados::find($id_empleados);
+        $empleado = Empleados::find($id_empleado);
         if ($empleado) {
             $empleado->nombre = $validatedData['nombre'];
             $empleado->apellido = $validatedData['apellido'];
             $empleado->cedula = $validatedData['cedula'];
             $empleado->fechanac = $validatedData['fechanac'];
             $empleado->genero = $validatedData['genero'];
-            $empleado->direccion = $validatedData['direccion'];
+            $empleado->dirreccion = $validatedData['dirreccion'];
             $empleado->telefono = $validatedData['telefono'];
             $empleado->correo_electronico = $validatedData['correo_electronico'];
             $empleado->fechaingreso = $validatedData['fechaingreso'];
@@ -72,24 +74,25 @@ class EmpleadosController extends Controller
             $empleado->foracademica = $validatedData['foracademica'];
             $empleado->teleemergencia = $validatedData['teleemergencia'];
             $empleado->id_puesto = $validatedData['id_puesto'];
+            $empleado->sueldo_base = $validatedData['sueldo_base'];
 
             $empleado->save();
 
-            return view('empleado/view', ['empleado' => $empleado]);
+            return view('empleados/view', ['empleado' => $empleado]);
         } else {
-            return view('empleado/view')->with('error', 'Registro no encontrado');
+            return view('empleados/view')->with('error', 'Registro no encontrado');
         }
     }
 
-    public function destroy($id_empleados)
+    public function destroy($id_empleado)
     {
-        $empleado = Empleados::find($id_empleados);
+        $empleado = Empleados::find($id_empleado);
 
         if ($empleado) {
             $empleado->delete();
-            return view('/empleado/view')->with('success', 'Todo borrado correctamente');
+            return view('/empleados/view')->with('success', 'Todo borrado correctamente');
         } else {
-            return view('/empleado/view')->with('error', 'Registro no encontrado');
+            return view('/empleados/view')->with('error', 'Registro no encontrado');
         }
 
     }

@@ -136,4 +136,19 @@ Route::delete('/registra_gastos/{id_gasto}', [GastosController::class , 'destroy
 Route::get('/registra_gastos/{id_gasto}', [GastosController::class , 'show'])->name('gastos.show');
 Route::patch('/registra_gastos/{id_gasto}', [GastosController::class , 'update'])->name('gastos.update');
 
+//Rutas empleados
+Route::get('/registrar/empleado', function () {
+    return view('empleados/form'); 
+})->name('registrar_empleado');
+
+Route::get('/view/empleados', function () {
+    return view('empleados/view');
+})->name('View_Empleados');
+
+Route::get('/registra_empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
+
+Route::delete('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
+Route::get('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'show'])->name('empleados.show');
+Route::patch('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'update'])->name('empleados.update');
+
 require __DIR__.'/auth.php';
