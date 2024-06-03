@@ -1,19 +1,15 @@
-
-<<<<<<< HEAD
-
 <?php 
-=======
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\GananciasController;
 use App\Http\Controllers\GastosController;
->>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
 use App\Http\Controllers\NinoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PuestosController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TutoresController;
 use App\Http\Controllers\EmpleadosController;
-use App\Http\Controllers\PagoController;
+use App\Http\Controllers\vistaNominaController;
+use App\Http\Controllers\NominaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,87 +29,43 @@ Route::middleware('auth')->group(function () {
 // Rutas niños
 Route::get('/registrar/nino', function () {
     return view('nino/form');
-})->name('nino.registrar');
+})->name('registrar_nino');
 
 Route::get('/view/nino', function () {
     return view('nino/view');
-})->name('nino.view');
+})->name('View_Nino');
 
-<<<<<<< HEAD
-Route::post('/registra/nino', [NinoController::class, 'store'])->name('nino.store');
-
-Route::delete('/registra/nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra/nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra/nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
-=======
 Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
 
 Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
 Route::get('/registra_nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
 Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
->>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
 
-// Rutas tutores
-Route::get('/registrar/tutor', function () {
-    return view('tutores/form'); 
-})->name('tutor.registrar');
 
-Route::get('/view/tutores', function () {
-    return view('tutores/view');
-})->name('tutor.view');
+// // Rutas tutores
+// Route::get('/registrar/tutor', function () {
+//     return view('tutores/form'); 
+// })->name('registrar_tutor');
 
-<<<<<<< HEAD
-Route::post('/registra/tutor', [TutoresController::class, 'store'])->name('tutores.store');
+// Route::get('/view/tutores', function () {
+//     return view('tutores/view');
+// })->name('View_Tutores');
 
-Route::delete('/registra/tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
-Route::get('/registra/tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
-Route::patch('/registra/tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+// Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutores.store');
 
-// Rutas empleados
-Route::get('/registrar/empleado', function () {
-    return view('empleados/form'); 
-})->name('empleado_reg');
-
-Route::get('/view/empleados', function () {
-    return view('empleados/view');
-})->name('empleado.view');
-
-Route::post('/registra/empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
-
-Route::delete('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
-Route::get('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'show'])->name('empleados.show');
-Route::patch('/registra/empleado/{id_empleados}', [EmpleadosController::class , 'update'])->name('empleados.update');
-
-// Rutas pagos
-Route::get('/registrar/pago', function () {
-    return view('pagos/form'); 
-})->name('pago_reg');
-
-Route::get('/view/pagos', function () {
-    return view('pagos/view');
-})->name('pago.view');
-
-Route::post('/registra/pago', [PagoController::class, 'store'])->name('pagos.store');
-
-Route::delete('/registra/pago/{id_pago}', [PagoController::class , 'destroy'])->name('pagos.destroy');
-Route::get('/registra/pago/{id_pago}', [PagoController::class , 'show'])->name('pagos.show');
-Route::patch('/registra/pago/{id_pago}', [PagoController::class , 'update'])->name('pagos.update');
-=======
-Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutores.store');
-
-Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
-Route::get('/registra_tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
-Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+// Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
+// Route::get('/registra_tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
+// Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
 
 
 //Rutas puestos
-Route::get('/registrar', function () {
+Route::get('/registrar/puesto', function () {
     return view('puestos/form'); 
-})->name('Registrar');
+})->name('registrar_puesto');
 
 Route::get('/view/puestos', function () {
     return view('puestos/view');
-})->name('View');
+})->name('View_Puestos');
 
 Route::get('/registra_puesto', [PuestosController::class, 'store'])->name('puestos.store');
 
@@ -123,13 +75,13 @@ Route::patch('/registra_puesto/{id_puesto}', [PuestosController::class , 'update
 
 
 //Rutas servicios
-Route::get('/registrar', function () {
+Route::get('/registrar/servicio', function () {
     return view('servicios/form'); 
-})->name('Registrar');
+})->name('registrar_servicio');
 
 Route::get('/view/servicios', function () {
     return view('servicios/view');
-})->name('View');
+})->name('View_Servicios');
 
 Route::get('/registra_servicio', [ServiciosController::class, 'store'])->name('servicios.store');
 
@@ -139,13 +91,13 @@ Route::patch('/registra_servicio/{id_servicio}', [ServiciosController::class , '
 
 
 //Rutas actividades
-Route::get('/registrar', function () {
+Route::get('/registrar/actividad', function () {
     return view('actividades/form'); 
-})->name('Registrar');
+})->name('registrar_actividad');
 
 Route::get('/view/actividades', function () {
     return view('actividades/view');
-})->name('View');
+})->name('View_Actividades');
 
 Route::get('/registra_actividades', [ActividadesController::class, 'store'])->name('actividades.store');
 
@@ -155,13 +107,13 @@ Route::patch('/registra_actividades/{id_actividad}', [ActividadesController::cla
 
 
 //Rutas ganancias
-Route::get('/registrar', function () {
+Route::get('/registrar/ganancia', function () {
     return view('ganancias/form'); 
-})->name('Registrar');
+})->name('registrar_ganancia');
 
 Route::get('/view/ganancias', function () {
     return view('ganancias/view');
-})->name('View');
+})->name('View_Ganancias');
 
 Route::get('/registra_ganancias', [GananciasController::class, 'store'])->name('ganancias.store');
 
@@ -171,19 +123,37 @@ Route::patch('/registra_ganancias/{id_ganancia}', [GananciasController::class , 
 
 
 //Rutas gastos
-Route::get('/registrar', function () {
+Route::get('/registrar/gasto', function () {
     return view('gastos/form'); 
-})->name('Registrar');
+})->name('registrar_gasto');
 
 Route::get('/view/gastos', function () {
     return view('gastos/view');
-})->name('View');
+})->name('View_Gastos');
 
 Route::get('/registra_gastos', [GastosController::class, 'store'])->name('gastos.store');
 
 Route::delete('/registra_gastos/{id_gasto}', [GastosController::class , 'destroy'])->name('gastos.destroy');
 Route::get('/registra_gastos/{id_gasto}', [GastosController::class , 'show'])->name('gastos.show');
 Route::patch('/registra_gastos/{id_gasto}', [GastosController::class , 'update'])->name('gastos.update');
->>>>>>> 1c5e799001d1e594f9d5b07bb23aa93088ff6645
 
-require __DIR__.'/auth.php';
+//Rutas empleados
+Route::get('/registrar/empleado', function () {
+    return view('empleados/form'); 
+})->name('registrar_empleado');
+
+Route::get('/view/empleados', function () {
+    return view('empleados/view');
+})->name('View_Empleados');
+
+Route::get('/registra_empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
+
+Route::delete('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
+Route::get('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'show'])->name('empleados.show');
+Route::patch('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'update'])->name('empleados.update');
+
+
+// Ruta de la vista de las nóminas
+Route::get('/nomina_empleado', [vistaNominaController::class, 'index'])->name('View_NominaDet');
+
+require _DIR_.'/auth.php';
