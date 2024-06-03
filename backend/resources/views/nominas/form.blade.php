@@ -4,16 +4,16 @@
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="GET" action="{{ route('empleados.store') }}">
+                    <form method="GET" >
                         @csrf
                         <div class="space-y-6">
                             <div class="sm:flex sm:items-center">
                                 <div class="sm:flex-auto">
-                                    <h1 class="text-2xl font-semibold leading-6 text-gray-900">{{ __('Empleados') }}</h1>
-                                    <p class="mt-2 mb-5 text-sm text-gray-700">Registra un {{ __('empleado') }}</p>
+                                    <h1 class="text-2xl font-semibold leading-6 text-gray-900">{{ __('Niños') }}</h1>
+                                    <p class="mt-2 mb-5 text-sm text-gray-700">Registra un {{ __('niño') }}</p>
                                 </div>
                                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                                    <a type="button" href="{{ route('View') }}"
+                                    <a type="button" href="{{ route('View_Nino') }}"
                                         class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Atrás</a>
                                 </div>
                             </div>
@@ -30,14 +30,14 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-bold text-black">Cédula</label>
-                                <input type="date" placeholder="Cédula" name="cedula"
+                                <label class="block text-sm font-bold text-black">Fecha de nacimiento</label>
+                                <input type="date" placeholder="Fecha de nacimiento" name="fecha_nac"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
                             <div>
-                                <label class="block text-sm font-bold text-black">Fecha de Nacimiento</label>
-                                <input type="number" placeholder="Fecha de Nacimiento" name="fechanac"
+                                <label class="block text-sm font-bold text-black">Edad</label>
+                                <input type="number" placeholder="Edad" name="edad"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
@@ -50,44 +50,58 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-bold text-black">Dirección</label>
-                                <input type="text" placeholder="Dirección" name="direccion"
-                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
-                            </div>
-
-                            
-                            <div>
-                                <label class="block text-sm font-bold text-black">Teléfono</label>
-                                <input type="text" placeholder="Teléfono" name="telefono"
+                                <label class="block text-sm font-bold text-black">Nacionalidad</label>
+                                <input type="text" placeholder="Nacionalidad" name="nacionalidad"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
                             <div>
-                                <label class="block text-sm font-bold text-black">Correo Eléctronico</label>
-                                <input type="number" placeholder="Correo Eléctronico" name="correo_electronico"
+                                <label class="block text-sm font-bold text-black">Modo de nacer</label>
+                                <select name="modo_nacer"
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    <option value="Natural">Natural</option>
+                                    <option value="Cesárea">Cesárea</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-black">Cantidad de hermanos</label>
+                                <input type="number" placeholder="Cantidad de hermanos" name="cant_hermanos"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
-                            
-                            
                             <div>
-                                <label class="block text-sm font-bold text-black">Fora Académica</label>
-                                <input type="text" placeholder="Fora Académica" name="foracademica"
+                                <label class="block text-sm font-bold text-black">Nivel educativo</label>
+                                <input type="text" placeholder="Nivel educativo" name="niv_educativo"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
-                            
                             <div>
-                                <label class="block text-sm font-bold text-black">Teléfono de Emergencia</label>
-                                <input type="text" placeholder="Teléfono de Emergencia" name="teleemergencia"
+                                <label class="block text-sm font-bold text-black">¿Tiene alergias?</label>
+                                <select name="alergia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    <option value="Sí">Sí</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-black">Descripción de alergia</label>
+                                <input type="text" placeholder="Descripción de alergia" name="desc_alergia"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
-                        
+                            <div>
+                                <label class="block text-sm font-bold text-black">¿Tiene discapacidad?</label>
+                                <select name="discapacidad"
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    <option value="Sí">Sí</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
 
                             <div>
-                                <label class="block text-sm font-bold text-black">Puesto</label>
-                                <input type="text" placeholder="Puesto" name="puesto"
+                                <label class="block text-sm font-bold text-black">Descripción de discapacidad</label>
+                                <input type="text" placeholder="Descripción de discapacidad" name="desc_discapacidad"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 

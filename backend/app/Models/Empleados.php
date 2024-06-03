@@ -9,7 +9,7 @@ class Empleados extends Model
 {
     use HasFactory;
     protected $table = "empleados";
-    protected $fillable = ['id_empleado', 'nombre', 'apellido', 'cedula', 'fechanac', 'genero', 'dirreccion', 'telefono', 'correo_electronico', 'fechaingreso', 'horariolabo', 'foracademica', 'teleemergencia', 'id_puesto',  'sueldo_base'];
-    protected $primaryKey = 'id_empleado';
+    protected $fillable = ['id_empleados', 'nombre', 'apellido', 'cedula', 'fechanac', 'genero', 'direccion', 'telefono', 'correo_electronico', 'fechaingreso', 'horariolabo', 'foracademica', 'teleemergencia', 'id_puesto',  'sueldo_base'];
+    protected $primaryKey = 'id_empleados';
     public $timestamps = false;
 }

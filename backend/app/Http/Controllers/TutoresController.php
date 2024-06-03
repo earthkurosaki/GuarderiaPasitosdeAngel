@@ -2,8 +2,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tutores;
-class TutoresController extends Controller
-{
+
+
+class TutoresController extends Controller{
     public function show($id_tutor)
     {
         $tutor = Tutores::find($id_tutor);
@@ -66,18 +67,13 @@ class TutoresController extends Controller
 
             $tutor->save();
 
-<<<<<<< Updated upstream
 
             return view('tutores/view', ['tutor' => $tutor]);
         } else {
             return view('tutores/view')->with('error', 'Registro no encontrado');
-
-=======
-            return view('tutores/view', ['tutor' => $tutor]);
-        } else {
-            return view('tutores/view')->with('error', 'Registro no encontrado');
->>>>>>> Stashed changes
         }
+
+        
     }
 
     public function destroy($id_tutor)
@@ -92,4 +88,7 @@ class TutoresController extends Controller
         }
 
     }
-}
+} 
+
+
+  

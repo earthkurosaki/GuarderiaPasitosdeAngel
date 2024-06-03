@@ -6,13 +6,13 @@ use App\Models\Empleados;
 
 class EmpleadosController extends Controller
 {
-    public function show($id_empleado)
+    public function show($id_empleados)
     {
-<<<<<<< Updated upstream
-        $empleado = Empleados::find($id_empleado);
-=======
+
         $empleado = Empleados::find($id_empleados);
->>>>>>> Stashed changes
+
+        $empleado = Empleados::find($id_empleados);
+
         return view('/empleados/update', ['empleado' => $empleado]);
     }
 
@@ -25,7 +25,7 @@ class EmpleadosController extends Controller
             'cedula' => 'required',
             'fechanac' => 'required',
             'genero' => 'required|string',
-            'dirreccion' => 'required|string',
+            'direccion' => 'required|string',
             'telefono' => 'required',
             'correo_electronico' => 'required|string',
             'fechaingreso' => 'required',
@@ -42,7 +42,7 @@ class EmpleadosController extends Controller
         return view('/empleados/view');
     }
 
-    public function update(Request $request, $id_empleado)
+    public function update(Request $request, $id_empleados)
     {
         //Validar el request
         $validatedData = $request->validate([
@@ -51,7 +51,7 @@ class EmpleadosController extends Controller
             'cedula' => 'required',
             'fechanac' => 'required',
             'genero' => 'required|string',
-            'dirreccion' => 'required|string',
+            'direccion' => 'required|string',
             'telefono' => 'required',
             'correo_electronico' => 'required|string',
             'fechaingreso' => 'required',
@@ -63,14 +63,14 @@ class EmpleadosController extends Controller
         ]);
 
         //Buscar el registro existente
-        $empleado = Empleados::find($id_empleado);
+        $empleado = Empleados::find($id_empleados);
         if ($empleado) {
             $empleado->nombre = $validatedData['nombre'];
             $empleado->apellido = $validatedData['apellido'];
             $empleado->cedula = $validatedData['cedula'];
             $empleado->fechanac = $validatedData['fechanac'];
             $empleado->genero = $validatedData['genero'];
-            $empleado->dirreccion = $validatedData['dirreccion'];
+            $empleado->direccion = $validatedData['direccion'];
             $empleado->telefono = $validatedData['telefono'];
             $empleado->correo_electronico = $validatedData['correo_electronico'];
             $empleado->fechaingreso = $validatedData['fechaingreso'];
@@ -88,9 +88,9 @@ class EmpleadosController extends Controller
         }
     }
 
-    public function destroy($id_empleado)
+    public function destroy($id_empleados)
     {
-        $empleado = Empleados::find($id_empleado);
+        $empleado = Empleados::find($id_empleados);
 
         if ($empleado) {
             $empleado->delete();
