@@ -11,7 +11,6 @@ class EmpleadosController extends Controller
         $empleado = Empleados::find($id_empleados);
         return view('/empleado/update', ['empleado' => $empleado]);
     }
-
     
     public function store(Request $request)
     {
@@ -24,7 +23,6 @@ class EmpleadosController extends Controller
             'direccion' => 'required|string',
             'telefono' => 'required',
             'correo_electronico' => 'required|string',
-            'fechaingreso' => 'required',
             'horariolabo' => 'required',
             'foracademica' => 'required|string',
             'teleemergencia' => 'required',

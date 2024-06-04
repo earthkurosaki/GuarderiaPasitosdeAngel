@@ -105,12 +105,14 @@
             <div class="flex items-center gap-2 md:gap-4">
                 @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="inline-block">
-                            <button
-                                class="bg-[#00b5ec] text-white px-4 md:px-5 py-2 rounded-full hover:bg-[#1696e4] text-sm md:text-base font-semibold">
-                                Dashboard
-                            </button>
-                        </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+    
+                        <button
+                        class="bg-[#00b5ec] text-white px-4 md:px-5 py-2 rounded-full hover:bg-[#1696e4] text-sm md:text-base font-semibold">
+                        Cerrar sesión
+                    </button>
+                    </form>
                     @else
                         <a href="{{ route('login') }}" class="inline-block">
                             <button
