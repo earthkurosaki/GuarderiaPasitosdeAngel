@@ -2,9 +2,23 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tutores;
+use Illuminate\Support\Facades\DB;
+
 
 
 class TutoresController extends Controller{
+
+    public function index(Request $request)
+{
+    $search = $request->input('search');
+    if ($search) {
+        $tutores = DB::table('tutores')->where('nombre', 'like', '%' . $search . '%')->get();
+    } else {
+        $tutores = DB::table('tutores')->get();
+    }
+
+    return view('tutores.view', ['tutores' => $tutores, 'search' => $search]); // Pasar la variable de búsqueda a la vista
+}
     public function show($id_tutor)
     {
         $tutor = Tutores::find($id_tutor);
@@ -28,7 +42,7 @@ class TutoresController extends Controller{
         ]);
         $tutor = new Tutores($request->all());
         $tutor->save();
-        return view('/tutores/view');
+        return view('View_Tutores');
     }
 
     public function update(Request $request, $id_tutor)
@@ -68,9 +82,9 @@ class TutoresController extends Controller{
             $tutor->save();
 
 
-            return view('tutores/view', ['tutor' => $tutor]);
+            return view('View_Tutores', ['tutor' => $tutor]);
         } else {
-            return view('tutores/view')->with('error', 'Registro no encontrado');
+            return view('View_Tutores')->with('error', 'Registro no encontrado');
         }
 
         
@@ -82,9 +96,9 @@ class TutoresController extends Controller{
 
         if ($tutor) {
             $tutor->delete();
-            return view('/tutores/view')->with('success', 'Todo deleted successfully');
+            return view('View_Tutores')->with('success', 'Todo deleted successfully');
         } else {
-            return view('/tutores/view')->with('error', 'Registro no encontrado');
+            return view('View_Tutores')->with('error', 'Registro no encontrado');
         }
 
     }

@@ -12,13 +12,17 @@
     <x-nav-link :href="route('View_Tutores')" :active="request()->routeIs('View_Tutores')">
         {{ __('Tutores') }}
     </x-nav-link>
-    <x-nav-link :href="route('View_Empleados')" :active="request()->routeIs('View_Empleados')">
+    <x-nav-link :href="route('View_Empleado')" :active="request()->routeIs('View_Empleado')">
         {{ __('Empleados') }}
     </x-nav-link>
 
     <x-nav-link :href="route('View_NominaDet')" :active="request()->routeIs('View_NominaDet')">
     {{ __('Nominas') }}
-</x-nav-link>
+    </x-nav-link>
+
+    <x-nav-link :href="route('View_IngresosDet')" :active="request()->routeIs('View_IngresosDet')">
+    {{ __('Ingresos') }}
+    </x-nav-link>
 
     <x-nav-link :href="route('View_Puestos')" :active="request()->routeIs('View_Puestos')">
         {{ __('Puestos') }}

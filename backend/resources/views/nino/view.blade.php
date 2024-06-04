@@ -1,8 +1,4 @@
 <x-app-layout>
-    @php
-        $nino = DB::select('select * from nino');
-    @endphp
-
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Niños') }}
@@ -22,6 +18,21 @@
                             <a type="button" href="{{ route('registrar_nino') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
                         </div>
                     </div>
+
+                    <!-- Formulario de búsqueda -->
+                    <form method="GET" action="{{ route('View_Nino') }}" class="mb-4 flex items-center space-x-2">
+                        <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ request()->get('search') }}">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+                            <i class="fas fa-search"></i>
+                            <span>Buscar</span>
+                        </button>
+                        @if (request()->get('search'))
+                            <a href="{{ route('View_Nino') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+                                <i class="fas fa-times"></i>
+                                <span>Limpiar</span>
+                            </a>
+                        @endif
+                    </form>
 
                     <div class="flow-root">
                         <div class="mt-8 overflow-x-auto">
@@ -47,7 +58,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
-                                        @foreach ($nino as $nino)
+                                        @foreach ($ninos as $nino)
                                             <tr class="even:bg-gray-50">
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $nino->id_nino }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $nino->nombre }}</td>

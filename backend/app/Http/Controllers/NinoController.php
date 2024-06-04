@@ -4,14 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Nino;
+use Illuminate\Support\Facades\DB;
 
 class NinoController extends Controller
 {
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+        if ($search) {
+            $ninos = DB::table('nino')->where('nombre', 'like', '%' . $search . '%')->get();
+        } else {
+            $ninos = DB::table('nino')->get();
+        }
+
+        return view('nino.view', ['ninos' => $ninos]); // Asegúrate de que 'view' es el nombre correcto de tu vista
+    }
+    
     public function show($id_nino)
     {
         $nino = Nino::find($id_nino);
-        return view('/nino/update', ['nino' => $nino]);
+        return view('nino.update', ['nino' => $nino]);
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -33,12 +47,11 @@ class NinoController extends Controller
         $nino = new Nino($request->all());
         $nino->save();
 
-        return view('/nino/view');
+        return redirect()->route('View_Nino');
     }
 
     public function update(Request $request, $id_nino)
     {
-        //Validar el request
         $validatedData = $request->validate([
             'nombre' => 'required|string',
             'apellido' => 'required|string',
@@ -55,42 +68,23 @@ class NinoController extends Controller
             'desc_discapacidad' => 'nullable|string',
         ]);
 
-        //Buscar el registro existente
         $nino = Nino::find($id_nino);
         if ($nino) {
-            $nino->nombre = $validatedData['nombre'];
-            $nino->apellido = $validatedData['apellido'];
-            $nino->fecha_nac = $validatedData['fecha_nac'];
-            $nino->edad = $validatedData['edad'];
-            $nino->genero = $validatedData['genero'];
-            $nino->nacionalidad = $validatedData['nacionalidad'];
-            $nino->modo_nacer = $validatedData['modo_nacer'];
-            $nino->cant_hermanos = $validatedData['cant_hermanos'];
-            $nino->niv_educativo = $validatedData['niv_educativo'];
-            $nino->alergia = $validatedData['alergia'];
-            $nino->desc_alergia = $validatedData['desc_alergia'];
-            $nino->discapacidad = $validatedData['discapacidad'];
-            $nino->desc_discapacidad = $validatedData['desc_discapacidad'];
-
-            $nino->save();
-
-            return view('nino/view', ['nino' => $nino]);
+            $nino->update($validatedData);
+            return redirect()->route('View_Nino')->with('success', 'Registro actualizado correctamente');
         } else {
-            return view('nino/view')->with('error', 'Registro no encontrado');
+            return redirect()->route('View_Nino')->with('error', 'Registro no encontrado');
         }
     }
 
     public function destroy($id_nino)
     {
         $nino = Nino::find($id_nino);
-
         if ($nino) {
             $nino->delete();
-            return view('/nino/view')->with('success', 'Todo deleted successfully');
+            return redirect()->route('View_Nino')->with('success', 'Registro eliminado correctamente');
         } else {
-            return view('/nino/view')->with('error', 'Registro no encontrado');
+            return redirect()->route('View_Nino')->with('error', 'Registro no encontrado');
         }
-
     }
-
 }
