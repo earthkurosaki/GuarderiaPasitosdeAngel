@@ -13,6 +13,6 @@ class Tutores extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     public $timestamps = false;
-    protected $fillable = ['id_tutor', 'nombre', 'apellido', 'fechanac', 'cedula', 'lugar_trabajo', 'cargo', 'nivel_academico', 'profesion', 'direccion', 'telefono', 'email', 'estado_civil'];
+    protected $fillable = ['id_tutor', 'nombre', 'apellido', 'fechanac', 'cedula', 'lugar_trabajo', 'cargo', 'nivel_academico', 'profesion', 'direccion', 'telefono', 'email', 'estado_civil', 'rel_parental'];
 
 }

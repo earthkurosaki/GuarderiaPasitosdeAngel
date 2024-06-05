@@ -15,18 +15,18 @@
                             <p class="mt-2 text-sm text-gray-700">Lista de todos los {{ __('tutores') }}</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('registrar_tutor') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
+                            <a href="{{ route('registrar_tutor') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
                         </div>
                     </div>
 
                     <!-- Formulario de búsqueda -->
                     <form method="GET" action="{{ route('View_Tutores') }}" class="mb-4 flex items-center space-x-2">
-                        <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ $search }}">
+                        <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ $search ?? '' }}">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                             <i class="fas fa-search"></i>
                             <span>Buscar</span>
                         </button>
-                        @if ($search)
+                        @if (!empty($search))
                             <a href="{{ route('View_Tutores') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                                 <i class="fas fa-times"></i>
                                 <span>Limpiar</span>
@@ -34,6 +34,7 @@
                         @endif
                     </form>
 
+                    <!-- Tabla de resultados -->
                     <div class="flow-root">
                         <div class="mt-8 overflow-x-auto">
                             <div class="inline-block min-w-full py-2 align-middle">

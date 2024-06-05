@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\DB;
 class EmpleadosController extends Controller
 {
     public function index2(Request $request)
-    {
-        $search = $request->input('search');
-        if ($search) {
-            $empleados = DB::table('empleados')->where('nombre', 'like', '%' . $search . '%')->get();
-        } else {
-            $empleados = DB::table('empleados')->get();
-        }
-        return view('empleados.view', ['empleados' => $empleados, 'search' => $search]); // Pasar la variable de búsqueda a la vista
+{
+    $search = $request->input('search');
+    if ($search) {
+        $empleados = DB::table('empl_v')->where('nombre', 'like', '%' . $search . '%')->get();
+    } else {
+        $empleados = DB::table('empl_v')->get();
     }
+    return view('empleados.view', [
+        'empleados' => $empleados // Pasar la variable de búsqueda a la vista
+    ]);
+}
+
     public function index()
     {
         $empleados = Empleados::all();

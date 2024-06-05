@@ -10,6 +10,8 @@ use App\Http\Controllers\TutoresController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\vistaNominaController;
 use App\Http\Controllers\IngresosVController;
+use App\Http\Controllers\Empleados_VController;
+use App\Http\Controllers\TutorNinoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,13 +47,15 @@ Route::get('/registrar/tutor', function () {
 })->name('registrar_tutor');
 
 Route::get('/view/tutores', [TutoresController::class, 'index'])->name('View_Tutores');
+
 Route::get('/tutor/{id_tutor}', [TutoresController::class, 'show'])->name('tutores.show');
 
-Route::delete('/tutores', [TutoresController::class , 'store'])->name('tutores.store');
-Route::get('/tutores/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
+Route::get('/tutores', [TutoresController::class , 'store'])->name('tutores.store');
+Route::delete('/tutores/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
 Route::patch('/tutores/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
 
-
+// Ruta para buscar niños y tutores asociados
+Route::get('/nino/view', [TutorNinoController::class, 'search'])->name('tutornino.search');
 //Rutas puestos
 Route::get('/registrar/puesto', function () {
     return view('puestos/form'); 
@@ -149,5 +153,9 @@ Route::get('/nomina_empleado', [vistaNominaController::class, 'index'])->name('V
 
 // Ruta de la vista de ganancias
 Route::get('/ingresos_guarderia', [IngresosVController::class, 'index'])->name('View_IngresosDet');
+
+
+//Ruta de la vista de empleados
+Route::get('/empleados', [Empleados_VController::class, 'index2'])->name('View_EmpleadoV');
 
 require __DIR__.'/auth.php';

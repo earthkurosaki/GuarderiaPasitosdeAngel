@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 
 class TutoresController extends Controller{
-
     public function index(Request $request)
 {
     $search = $request->input('search');
@@ -17,8 +16,11 @@ class TutoresController extends Controller{
         $tutores = DB::table('tutores')->get();
     }
 
+    dd($search, $tutores); // Depurar la variable $search y la colección $tutores
+
     return view('tutores.view', ['tutores' => $tutores, 'search' => $search]); // Pasar la variable de búsqueda a la vista
 }
+    
     public function show($id_tutor)
     {
         $tutor = Tutores::find($id_tutor);
@@ -39,10 +41,11 @@ class TutoresController extends Controller{
             'telefono' => 'required',
             'email' => 'required',
             'estado_civil' => 'required|string',
+            'rel_parental' => 'required|string',
         ]);
         $tutor = new Tutores($request->all());
         $tutor->save();
-        return view('View_Tutores');
+        return view('dashboard');
     }
 
     public function update(Request $request, $id_tutor)
@@ -61,6 +64,7 @@ class TutoresController extends Controller{
             'telefono' => 'required',
             'email' => 'required',
             'estado_civil' => 'required|string',
+            'rel_parental' => 'required|string',
         ]);
 
         //Buscar el registro existente
@@ -78,6 +82,7 @@ class TutoresController extends Controller{
             $tutor->telefono = $validatedData['telefono'];
             $tutor->email = $validatedData['email'];
             $tutor->estado_civil = $validatedData['estado_civil'];
+            $tutor->rel_parental = $validatedData['rel_parental'];
 
             $tutor->save();
 
@@ -96,9 +101,9 @@ class TutoresController extends Controller{
 
         if ($tutor) {
             $tutor->delete();
-            return view('View_Tutores')->with('success', 'Todo deleted successfully');
+            return view('/tutores/view')->with('success', 'Todo deleted successfully');
         } else {
-            return view('View_Tutores')->with('error', 'Registro no encontrado');
+            return view('/tutores/view')->with('error', 'Registro no encontrado');
         }
 
     }
