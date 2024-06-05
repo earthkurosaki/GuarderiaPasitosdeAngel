@@ -2,6 +2,8 @@
     @php
     $empleado = DB::select('select *from empleados');
     $tutor = DB::select('select *from tutores');
+    $servicio = DB::select('select *from servicios');
+    $nino = DB::select('select *from nino');
    @endphp
     <div class="py-12">
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
@@ -30,17 +32,26 @@
                                 </select>
                             </div>
 
-                            <div>
-                                <label class="block text-sm font-bold text-black">Servicio</label>
-                                <select name="id_servicio" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="2">Guarderia</option>
-                                    <option value="3">Nivel inicial</option>
-                                    <option value="4">Sala de tarea</option>
-                                    <option value="5">Cuidado Sabatino</option>
+                  <div>
+                    <label class="block text-sm font-bold text-black">Niño </label>
+                    <select name="id_nino">
+                        @foreach ($nino as $pu)
+                        <option value="{{$pu -> id_nino}}">{{$pu -> nombre }}</option>
+                        @endforeach
+                       
+                    </select>
+                </div>
 
+                  <div>
+                    <label class="block text-sm font-bold text-black">Servicio</label>
+                    <select name="id_servicio">
+                        @foreach ($servicio as $pu)
+                        <option value="{{$pu -> id_servicio}}">{{$pu -> nombre }}</option>
+                        @endforeach
+                       
+                    </select>
+                </div>
 
-                                </select>
-                            </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Actividad adicional</label>
