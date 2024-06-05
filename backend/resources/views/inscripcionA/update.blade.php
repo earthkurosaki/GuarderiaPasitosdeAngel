@@ -22,10 +22,10 @@
                                 <label class="block text-sm font-bold text-black">Actividad a la que asistirá</label>
                                 <select name="id_actividad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                                     @foreach ($actividades as $actividad)
-<option value="{{ $actividad->id_actividad }}" {{ $actividad->id_actividad == $inscripcion->id_actividad ? 'selected' : '' }}>
-    {{ $actividad->nombre }}
-</option>
-@endforeach
+                                 <option value="{{ $actividad->id_actividad }}" {{ $actividad->id_actividad == $inscripcion->id_actividad ? 'selected' : '' }}>
+                                 {{ $actividad->nombre }}
+                                </option>
+                                      @endforeach
 
                                 </select>
                             </div>

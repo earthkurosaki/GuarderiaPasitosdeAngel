@@ -12,13 +12,17 @@
     <x-nav-link :href="route('View_Tutores')" :active="request()->routeIs('View_Tutores')">
         {{ __('Tutores') }}
     </x-nav-link>
-    <x-nav-link :href="route('View_Empleado')" :active="request()->routeIs('View_Empleado')">
+    <x-nav-link :href="route('View_Empleados')" :active="request()->routeIs('View_Empleados')">
         {{ __('Empleados') }}
     </x-nav-link>
 
     <x-nav-link :href="route('View_NominaDet')" :active="request()->routeIs('View_NominaDet')">
     {{ __('Nominas') }}
     </x-nav-link>
+    
+    <x-nav-link :href="route('View_Pagos')" :active="request()->routeIs('View_Pagos')">
+        {{ __('Pagos') }}
+        </x-nav-link>
 
     <x-nav-link :href="route('View_IngresosDet')" :active="request()->routeIs('View_IngresosDet')">
     {{ __('Ingresos') }}
@@ -33,11 +37,14 @@
     <x-nav-link :href="route('View_Actividades')" :active="request()->routeIs('View_Actividades')">
         {{ __('Actividades') }}
     </x-nav-link>
-    <x-nav-link :href="route('View_Ganancias')" :active="request()->routeIs('View_Ganancias')">
+    <x-nav-link :href="route('View_GananciasDet')" :active="request()->routeIs('View_GananciasDet')">
         {{ __('Ganancias') }}
     </x-nav-link>
     <x-nav-link :href="route('View_Gastos')" :active="request()->routeIs('View_Gastos')">
         {{ __('Gastos') }}
+    </x-nav-link>
+    <x-nav-link :href="route('View_Cursos')" :active="request()->routeIs('View_Cursos')">
+        {{ __('Cursos') }}
     </x-nav-link>
     
 </div>
