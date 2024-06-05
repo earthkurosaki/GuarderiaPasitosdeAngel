@@ -17,7 +17,7 @@ class NinoController extends Controller
             $ninos = DB::table('nino')->get();
         }
 
-        return view('nino.view', ['ninos' => $ninos]); // Asegúrate de que 'view' es el nombre correcto de tu vista
+        return view('nino.view', ['ninos' => $ninos]); // 'ninos' debe coincidir con el nombre de la variable en la vista
     }
     
     public function show($id_nino)

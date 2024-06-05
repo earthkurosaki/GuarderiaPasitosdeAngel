@@ -8,18 +8,18 @@ use App\Models\TutorNino;
 
 class TutorNinoController extends Controller
 {
-      public function index(Request $request)
+      public function index2(Request $request)
     {
-        $search = $request->input('search');
+        $search2 = $request->input('search2');
 
         $query = TutorNino::query();
 
-        if ($search) {
-            $query->where('id_tutor' , $search);
+        if ($search2) {
+            $query->where('id_tutor' , $search2);
         }
 
         $datos = $query->get();
 
-        return view('/vistaTutoresNino/index', compact('datos'));
+        return view('/nino/view', compact('datos'));
     }
 }

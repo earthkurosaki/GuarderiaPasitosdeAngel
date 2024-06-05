@@ -25,7 +25,7 @@
                         </div>
                     </div>
 
-                    <form method="GET" action="{{ route('View_EmpleadoV') }}" class="mb-4 flex items-center space-x-2">
+                    <form method="GET" action="{{ route('View_Empleados') }}" class="mb-4 flex items-center space-x-2">
                         <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ request()->get('search') }}">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                             <i class="fas fa-search"></i>

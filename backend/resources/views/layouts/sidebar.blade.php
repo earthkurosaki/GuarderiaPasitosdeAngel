@@ -10,14 +10,14 @@
         {{ __('Niños') }}
     </x-nav-link>
 
-    <x-nav-link :href="route('View_TutoresNino')" :active="request()->routeIs('View_TutoresNino')">
+    {{-- <x-nav-link :href="route('View_TutoresNino')" :active="request()->routeIs('View_TutoresNino')">
         {{ __('aAA') }}
-    </x-nav-link>
+    </x-nav-link> --}}
 
     <x-nav-link :href="route('View_Tutores')" :active="request()->routeIs('View_Tutores')">
         {{ __('Tutores') }}
     </x-nav-link>
-    <x-nav-link :href="route('View_Empleado')" :active="request()->routeIs('View_Empleado')">
+    <x-nav-link :href="route('View_Empleados')" :active="request()->routeIs('View_Empleados')">
         {{ __('Empleados') }}
     </x-nav-link>
 
@@ -25,9 +25,9 @@
     {{ __('Nominas') }}
     </x-nav-link>
 
-    <x-nav-link :href="route('View_IngresosDet')" :active="request()->routeIs('View_IngresosDet')">
+    {{-- <x-nav-link :href="route('View_IngresosDet')" :active="request()->routeIs('View_IngresosDet')">
     {{ __('Ingresos') }}
-    </x-nav-link>
+    </x-nav-link> --}}
 
     <x-nav-link :href="route('View_Puestos')" :active="request()->routeIs('View_Puestos')">
         {{ __('Puestos') }}
@@ -38,9 +38,9 @@
     <x-nav-link :href="route('View_Actividades')" :active="request()->routeIs('View_Actividades')">
         {{ __('Actividades') }}
     </x-nav-link>
-    <x-nav-link :href="route('View_Ganancias')" :active="request()->routeIs('View_Ganancias')">
+    {{-- <x-nav-link :href="route('View_Ganancias')" :active="request()->routeIs('View_Ganancias')">
         {{ __('Ganancias') }}
-    </x-nav-link>
+    </x-nav-link> --}}
     <x-nav-link :href="route('View_Gastos')" :active="request()->routeIs('View_Gastos')">
         {{ __('Gastos') }}
     </x-nav-link>
