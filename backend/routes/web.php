@@ -10,6 +10,11 @@ use App\Http\Controllers\TutoresController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\vistaNominaController;
 use App\Http\Controllers\NominaController;
+use App\Http\Controllers\GananciasVController;
+use App\Http\Controllers\PagoController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\InscripcionaController;
+use App\Http\Controllers\InscripcioncController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,18 +49,18 @@ Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->na
 
 // Rutas tutores
 Route::get('/registrar/tutor', function () {
- return view('tutores/form'); 
- })->name('registrar_tutor');
+    return view('tutores/form'); 
+})->name('registrar_tutor');
 
 Route::get('/view/tutores', function () {
-   return view('tutores/view');
+    return view('tutores/view');
 })->name('View_Tutores');
 
 Route::get('/registra_tutor', [TutoresController::class, 'store'])->name('tutores.store');
 
- Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
- Route::get('/registra_tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
- Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
+Route::delete('/registra_tutor/{id_tutor}', [TutoresController::class , 'destroy'])->name('tutores.destroy');
+Route::get('/registra_tutor/{id_tutor}', [TutoresController::class , 'show'])->name('tutores.show');
+Route::patch('/registra_tutor/{id_tutor}', [TutoresController::class , 'update'])->name('tutores.update');
 
 
 //Rutas puestos
@@ -107,19 +112,19 @@ Route::patch('/registra_actividades/{id_actividad}', [ActividadesController::cla
 
 
 //Rutas ganancias
-Route::get('/registrar/ganancia', function () {
-    return view('ganancias/form'); 
-})->name('registrar_ganancia');
+// Route::get('/registrar/ganancia', function () {
+//     return view('ganancias/form'); 
+// })->name('registrar_ganancia');
 
-Route::get('/view/ganancias', function () {
-    return view('ganancias/view');
-})->name('View_Ganancias');
+// Route::get('/view/ganancias', function () {
+//     return view('ganancias/view');
+// })->name('View_Ganancias');
 
-Route::get('/registra_ganancias', [GananciasController::class, 'store'])->name('ganancias.store');
+// Route::get('/registra_ganancias', [GananciasController::class, 'store'])->name('ganancias.store');
 
-Route::delete('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'destroy'])->name('ganancias.destroy');
-Route::get('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'show'])->name('ganancias.show');
-Route::patch('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'update'])->name('ganancias.update');
+// Route::delete('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'destroy'])->name('ganancias.destroy');
+// Route::get('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'show'])->name('ganancias.show');
+// Route::patch('/registra_ganancias/{id_ganancia}', [GananciasController::class , 'update'])->name('ganancias.update');
 
 
 //Rutas gastos
@@ -153,7 +158,71 @@ Route::get('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'sh
 Route::patch('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'update'])->name('empleados.update');
 
 
+//Rutas pago
+Route::get('/registrar/pagos', function () {
+    return view('pagos/form'); 
+})->name('registrar_pago');
+
+Route::get('/view/pagos', function () {
+    return view('pagos/view');
+})->name('View_Pagos');
+
+Route::get('/registrar_pago', [PagoController::class, 'store'])->name('pagos.store');
+
+
+Route::delete('/registrar_pago/{id_pago}', [PagoController::class , 'destroy'])->name('pagos.destroy');
+Route::get('/registrar_pago/{id_pago}', [PagoController::class , 'show'])->name('pagos.show');
+Route::patch('/registrar_pago/{id_pago}', [PagoController::class , 'update'])->name('pagos.update');
+
+//Rutas cursos
+Route::get('/registrar/cursos', function () {
+    return view('cursos/form'); 
+})->name('registrar_curso');
+
+Route::get('/view/cursos', function () {
+    return view('cursos/view');
+})->name('View_Cursos');
+
+Route::get('/registra_curso', [CursoController::class, 'store'])->name('cursos.store');
+
+Route::delete('/registra_curso/{id_curso}', [CursoController::class , 'destroy'])->name('cursos.destroy');
+Route::get('/registra_curso/{id_curso}', [CursoController::class , 'show'])->name('cursos.show');
+Route::patch('/registra_curso/{id_curso}', [CursoController::class , 'update'])->name('curso.update');
+
+//Rutas inscripcion a las actividades
+Route::get('/registrar/inscripcionA', function () {
+    return view('InscripcionA/form'); 
+})->name('registrar_inscripcion');
+
+Route::get('/view/inscripcion', function () {
+    return view('inscripciona/view');
+})->name('View_InscripcionA');
+
+Route::get('/registra_inscripcion', [InscripcionaController::class, 'store'])->name('inscripcion.store');
+
+Route::delete('/registra_inscripcion/{id_inscripcion}', [InscripcionaController::class , 'destroy'])->name('inscripciona.destroy');
+Route::get('/registra_inscripcion/{id_inscripcion}', [InscripcionaController::class , 'show'])->name('inscripciona.show');
+Route::patch('/registra_inscripcion/{id_inscripcion}', [InscripcionaController::class , 'update'])->name('inscripciona.update');
+
+//Rutas inscripcion a lOS CURSOS
+Route::get('/registrar/inscripcionC', function () {
+    return view('InscripcionC/form'); 
+})->name('registrar_inscripcionc');
+
+Route::get('/view/inscripcionc', function () {
+    return view('inscripcionc/view');
+})->name('View_InscripcionC');
+
+Route::get('/registra_inscripcionc', [InscripcioncController::class, 'store'])->name('inscripcionc.store');
+
+Route::delete('/registra_inscripcionc/{id_inscripcion}', [InscripcioncController::class , 'destroy'])->name('inscripcionc.destroy');
+Route::get('/registra_inscripcionc/{id_inscripcion}', [InscripcioncController::class , 'show'])->name('inscripcionc.show');
+Route::patch('/registra_inscripcionc/{id_inscripcion}', [InscripcioncController::class , 'update'])->name('inscripcionc.update');
+
 // Ruta de la vista de las nóminas
 Route::get('/nomina_empleado', [vistaNominaController::class, 'index'])->name('View_NominaDet');
 
-require _DIR_.'/auth.php';
+// Ruta de la vista de las ganancias
+Route::get('/ganancias_guarderia', [GananciasVController::class, 'index'])->name('View_GananciasDet');
+
+require __DIR__.'/auth.php';
