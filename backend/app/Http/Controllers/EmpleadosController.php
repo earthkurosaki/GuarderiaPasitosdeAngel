@@ -33,6 +33,7 @@ class EmpleadosController extends Controller
         return view('empleados.update', ['empleado' => $empleado]);
     }
 
+    
     public function store(Request $request)
     {
         $request->validate([
