@@ -15,6 +15,7 @@ use App\Http\Controllers\PagoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\InscripcionaController;
 use App\Http\Controllers\InscripcioncController;
+use App\Http\Controllers\TutorNinoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -224,5 +225,8 @@ Route::get('/nomina_empleado', [vistaNominaController::class, 'index'])->name('V
 
 // Ruta de la vista de las ganancias
 Route::get('/ganancias_guarderia', [GananciasVController::class, 'index'])->name('View_GananciasDet');
+
+// Ruta de la vista de tutores nino
+Route::get('/vistaTutoresNino', [TutorNinoController::class, 'index'])->name('View_TutoresNino');
 
 require __DIR__.'/auth.php';

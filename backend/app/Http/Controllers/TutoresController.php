@@ -15,8 +15,7 @@ class TutoresController extends Controller{
     } else {
         $tutores = DB::table('tutores')->get();
     }
-
-    dd($search, $tutores); // Depurar la variable $search y la colección $tutores
+// Depurar la variable $search y la colección $tutores
 
     return view('tutores.view', ['tutores' => $tutores, 'search' => $search]); // Pasar la variable de búsqueda a la vista
 }
