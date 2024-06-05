@@ -79,9 +79,9 @@ class EmpleadosController extends Controller
     $empleado = Empleados::find($id_empleados);
     if ($empleado) {
         $empleado->update($validatedData);
-        return redirect()->route('View_Empleado')->with('success', 'Empleado actualizado exitosamente');
+        return redirect()->route('View_Empleados')->with('success', 'Empleado actualizado exitosamente');
     } else {
-        return redirect()->route('View_Empleado')->with('error', 'Empleado no encontrado');
+        return redirect()->route('View_Empleados')->with('error', 'Empleado no encontrado');
     }
 }
 

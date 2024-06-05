@@ -15,8 +15,6 @@ use App\Http\Controllers\PagoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\InscripcionaController;
 use App\Http\Controllers\InscripcioncController;
-use App\Http\Controllers\TutorNinoController;
-use App\Http\Controllers\IngresosVController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -153,11 +151,11 @@ Route::get('/view/empleados', function () {
     return view('empleados/view');
 })->name('View_Empleados');
 
-Route::get('/registra_empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
+Route::post('/registra_empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
 
-Route::delete('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
-Route::get('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'show'])->name('empleados.show');
-Route::patch('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'update'])->name('empleados.update');
+Route::delete('/registra_empleado/{id_empleados}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
+Route::get('/registra_empleado/{id_empleados}', [EmpleadosController::class , 'show'])->name('empleados.show');
+Route::patch('/registra_empleado/{id_empleados}', [EmpleadosController::class , 'update'])->name('empleados.update');
 
 
 //Rutas pago
@@ -227,11 +225,6 @@ Route::get('/nomina_empleado', [vistaNominaController::class, 'index'])->name('V
 // Ruta de la vista de las ganancias
 Route::get('/ganancias_guarderia', [GananciasVController::class, 'index'])->name('View_GananciasDet');
 
-// Ruta de la vista de tutores nino
-Route::get('/nino/view', [TutorNinoController::class, 'index2'])->name('View_TutoresNino');
-
-
-// // Ruta de la vista de tutores nino
-// Route::get('/nino', [IngresosVController::class, 'index2'])->name('View_IngresosDet');
+Route::get('/nino', [GananciasVController::class, 'index2'])->name('View_TutoresNino');
 
 require __DIR__.'/auth.php';

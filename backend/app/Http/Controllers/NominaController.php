@@ -7,34 +7,34 @@ use App\Models\Nomina;
 
 class NominaController extends Controller
 {
-    // public function show($cod_nomina)
-    // {
-    //     $nomina = Nomina::find($cod_nomina);
-    //     return view('/nomina/update', ['nomina' => $nomina]);
-    // }
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'nombre' => 'required|string',
-    //         'apellido' => 'required|string',
-    //         'fecha_nac' => 'required',
-    //         'edad' => 'required|numeric',
-    //         'genero' => 'required',
-    //         'nacionalidad' => 'required|string',
-    //         'modo_nacer' => 'required',
-    //         'cant_hermanos' => 'required|numeric',
-    //         'niv_educativo' => 'required|string',
-    //         'alergia' => 'required',
-    //         'desc_alergia' => 'nullable|string',
-    //         'discapacidad' => 'required',
-    //         'desc_discapacidad' => 'nullable|string',
-    //     ]);
+    public function show($cod_nomina)
+    {
+        $nomina = Nomina::find($cod_nomina);
+        return view('/nomina/update', ['nomina' => $nomina]);
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string',
+            'apellido' => 'required|string',
+            'fecha_nac' => 'required',
+            'edad' => 'required|numeric',
+            'genero' => 'required',
+            'nacionalidad' => 'required|string',
+            'modo_nacer' => 'required',
+            'cant_hermanos' => 'required|numeric',
+            'niv_educativo' => 'required|string',
+            'alergia' => 'required',
+            'desc_alergia' => 'nullable|string',
+            'discapacidad' => 'required',
+            'desc_discapacidad' => 'nullable|string',
+        ]);
 
-    //     $nino = new Nino($request->all());
-    //     $nino->save();
+        $nino = new Nino($request->all());
+        $nino->save();
 
-    //     return view('/nino/view');
-    // }
+        return view('/nino/view');
+    }
 
     public function update(Request $request, $cod_nomina)
     {

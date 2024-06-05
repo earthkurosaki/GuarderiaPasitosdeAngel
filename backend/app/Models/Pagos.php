@@ -13,3 +13,4 @@ class Pagos extends Model
     protected $primaryKey = 'id_pago';
     public $timestamps = false;
 }
+

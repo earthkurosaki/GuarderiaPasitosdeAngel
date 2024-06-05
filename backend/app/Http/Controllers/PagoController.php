@@ -4,72 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pagos;
+use App\Models\Tutor;
+use App\Models\Empleado;
 
 class PagoController extends Controller
 {
     public function show($id_pago)
     {
         $pago = Pagos::find($id_pago);
-        return view('/pagos/update', ['pago' => $pago]);
+        $tutores = Tutor::all();
+        $empleados = Empleado::all(); // Obtener todos los empleados
+        return view('/pagos/update', compact('pago', 'tutores', 'empleados'));
     }
     public function store(Request $request)
-    {
-        $request->validate([
-            'id_tutor' => 'required',
-            'id_servicio' => 'required',
-            'monto' => 'required',
-            'metodo_pago' => 'required|string',
-            'descripcion' => 'required|string',
-            'id_empleados' => 'required',
-        ]);
+{
 
+    $request->validate([
+        'id_tutor' => 'required',
+        'id_servicio' => 'nullable',
+        'monto' => 'required',
+        'metodo_pago' => 'required|string',
+        'descripcion' => 'nullable|string',
+        'id_empleados' => 'required',
+        'fecha' => 'nullable',
+        'facturado' => 'nullable',
+        'monto_neto' => 'nullable',
+        'actividad_adicional' => 'nullable',
+    ]);
+    
+
+    try {
         $pago = new Pagos($request->all());
         $pago->save();
-
-        return view('/pagos/view');
+    } catch (\Exception $e) {
+        // Manejar el error, por ejemplo, devolver un mensaje de error o redirigir con un mensaje de error
+        return redirect()->back()->with('error', 'Hubo un problema al guardar el pago: ' . $e->getMessage());
     }
-
-    public function update(Request $request, $id_pago)
-    {
-        //Validar el request
-        $validatedData = $request->validate([
-            'id_tutor' => 'required',
-            'id_servicio' => 'required',
-            'monto' => 'required',
-            'metodo_pago' => 'required|string',
-            'descripcion' => 'required|string',
-            'id_empleados' => 'required',
-        ]);
-
-        //Buscar el registro existente
-        $pago = Pagos::find($id_pago);
-        if ($pago) {
-            $pago->id_tutor = $validatedData['id_tutor'];
-            $pago->id_servicio = $validatedData['id_servicio'];
-            $pago->monto = $validatedData['monto'];
-            $pago->metodo_pago = $validatedData['metodo_pago'];
-            $pago->descripcion = $validatedData['descripcion'];
-            $pago->id_empleados = $validatedData['id_empleados'];
-            
-            $pago->save();
-
-            return view('pago/view', ['pago' => $pago]);
-        } else {
-            return view('pago/view')->with('error', 'Registro no encontrado');
-        }
-    }
-
-    public function destroy($id_pago)
-    {
-        $pago = Pagos::find($id_pago);
-
-        if ($pago) {
-            $pago->delete();
-            return view('/pago/view')->with('success', 'Todo deleted successfully');
-        } else {
-            return view('/pago/view')->with('error', 'Registro no encontrado');
-        }
-
-    }
-
-}
+    
+}}
