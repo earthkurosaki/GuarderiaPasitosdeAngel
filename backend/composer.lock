@@ -5,6 +5,9 @@
         "This file is @generated automatically"
     ],
     "content-hash": "19686d1927dc92422bf6d4e1e47e72a9",
+
+    "content-hash2": "3da4b7104047b1e40cfadf1042e5fca2",
+
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -82,8 +85,8 @@
                 }
             ],
             "time": "2024-04-25T13:16:04+00:00"
-        },
-        {
+        }
+        ,{
             "name": "brick/math",
             "version": "0.12.1",
             "source": {

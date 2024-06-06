@@ -13,19 +13,23 @@ class GastosController extends Controller
         return view('/gastos/update', ['gasto' => $gasto]);
     }
     public function store(Request $request)
-    {
-        $request->validate([
-            'concepto' => 'required|string',
-            'monto' => 'required',
-            'fecha' => 'required',
-            'descripcion' => 'nullable|string',
-        ]);
+{
+    $request->validate([
+        'concepto' => 'required|string',
+        'monto' => 'required',
+        'descripcion' => 'nullable|string',
+    ]);
 
-        $gasto = new Gastos($request->all());
-        $gasto->save();
+    $gasto = new Gastos();
+    $gasto->concepto = $request->input('concepto');
+    $gasto->monto = $request->input('monto');
+    $gasto->descripcion = $request->input('descripcion');
 
-        return view('/gastos/view');
-    }
+    $gasto->save();
+
+    return view('gastos.view');
+}
+
 
     public function update(Request $request, $id_gasto)
     {

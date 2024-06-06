@@ -258,4 +258,9 @@ Route::get('/ganancias_guarderia', [GananciasVController::class, 'index'])->name
 // Ruta de la vista de los ingresos
 Route::get('/ingresos_guarderia', [IngresosVController::class, 'index'])->name('View_IngresosDet');
 
+
+
+
+
+
 require __DIR__.'/auth.php';

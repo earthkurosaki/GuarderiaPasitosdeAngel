@@ -29,10 +29,6 @@
                                 <input type="text" placeholder="Monto" name="monto" id="monto-{{ $gasto->id_gasto }}" value="{{ $gasto->monto }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
-                            <div>
-                                <label class="block text-sm font-bold text-black">Fecha</label>
-                                <input type="text" placeholder="Fecha" name="fecha" id="fecha-{{ $gasto->id_gasto }}" value="{{ $gasto->fecha }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
-                            </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Descripción</label>

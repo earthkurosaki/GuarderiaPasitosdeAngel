@@ -30,11 +30,6 @@
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
 
-                            <div>
-                                <label class="block text-sm font-bold text-black">Fecha</label>
-                                <input type="date" placeholder="Fecha" name="fecha"
-                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
-                            </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Descripción</label>
