@@ -22,8 +22,8 @@ class TutoresController extends Controller{
     
     public function show($id_tutor)
     {
-        $tutor = Tutores::find($id_tutor);
-        return view('/tutores/update', ['tutor' => $tutor]);
+        $tutores = Tutores::find($id_tutor);
+        return view('/tutores/update', ['tutor' => $tutores]);
     }
     public function store(Request $request)
     {

@@ -32,7 +32,7 @@
                             <span>Buscar</span>
                         </button>
                         @if (request()->get('search'))
-                            <a href="{{ route('View_EmpleadoV') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+                            <a href="{{ route('View_Empleados') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                                 <i class="fas fa-times"></i>
                                 <span>Limpiar</span>
                             </a>

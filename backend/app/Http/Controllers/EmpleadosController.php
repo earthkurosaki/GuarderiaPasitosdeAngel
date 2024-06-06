@@ -92,9 +92,9 @@ class EmpleadosController extends Controller
 
         if ($empleado) {
             $empleado->delete();
-            return redirect()->route('View_Empleado')->with('success', 'Empleado eliminado exitosamente');
+            return redirect()->route('View_Empleados')->with('success', 'Empleado eliminado exitosamente');
         } else {
-            return redirect()->route('View_Empleado')->with('error', 'Empleado no encontrado');
+            return redirect()->route('View_Empleados')->with('error', 'Empleado no encontrado');
         }
     }
 }

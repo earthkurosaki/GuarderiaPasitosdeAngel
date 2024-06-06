@@ -15,8 +15,8 @@ class TutorNino extends Model
         'tutor_nombre',
         'tutor_apellido',
         'id_nino',
-        'niño',
-        'niño_apellido',
+        'nino',
+        'nino_apellido',
         'relacion_parental',
     ];
 
