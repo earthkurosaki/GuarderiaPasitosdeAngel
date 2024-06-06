@@ -32,7 +32,7 @@
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Id</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Id del tutor</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Id del servicio</th>
-                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Actividad adicional</th>
+                                            {{-- <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Actividad adicional</th> --}}
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Monto</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Monto neto</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Metodo de pago</th>
@@ -49,7 +49,7 @@
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->id_pago }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->id_tutor }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->id_servicio }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->actividad_adicional }}</td>
+                                                {{-- <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->actividad_adicional }}</td> --}}
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->monto }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->monto_neto }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->metodo_pago }}</td>

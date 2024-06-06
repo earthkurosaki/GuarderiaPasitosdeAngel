@@ -45,8 +45,6 @@
                                 <input type="text" placeholder="Día" name="dia" id="dia-{{ $curso->id_curso }}" value="{{ $curso->dia }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
-                    
-
                             <div>
                                 <label class="block text-sm font-bold text-black">Empleado</label>
                                 <select name="id_empleados" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
@@ -58,8 +56,6 @@
 
                                 </select>
                             </div>
-
-
                             
                             <div class="mt-6 flex items-center gap-4">
                                 <x-primary-button>Actualizar</x-primary-button>

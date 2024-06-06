@@ -20,7 +20,7 @@ class NinoController extends Controller
             $ninos = Nino::all();
         }
 
-        return view('nino.view', ['ninos' => $ninos]);
+        return view('nino.view', ['ninos' => $ninos]); // Asegúrate de que 'view' es el nombre correcto de tu vista
     }
     
     public function show($id_nino)

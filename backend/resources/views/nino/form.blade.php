@@ -6,7 +6,7 @@
 
                    
 
-                    <form method="POST" action="{{ route('nino.store') }}">
+                    <form method="GET" action="{{ route('nino.store') }}">
                         @csrf
                         <div class="space-y-6">
                             <div class="sm:flex sm:items-center">
