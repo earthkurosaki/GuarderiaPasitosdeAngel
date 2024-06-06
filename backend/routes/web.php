@@ -1,5 +1,6 @@
 <?php 
 use App\Http\Controllers\ActividadesController;
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\GananciasController;
 use App\Http\Controllers\GastosController;
 use App\Http\Controllers\NinoController;
@@ -226,5 +227,20 @@ Route::get('/nomina_empleado', [vistaNominaController::class, 'index'])->name('V
 Route::get('/ganancias_guarderia', [GananciasVController::class, 'index'])->name('View_GananciasDet');
 
 Route::get('/nino', [GananciasVController::class, 'index2'])->name('View_TutoresNino');
+
+//Rutas contactanos
+Route::get('/registrar/contactanos', function () {
+    return view('cursos/form'); 
+})->name('registrar_contactanos');
+
+Route::get('/view/contactanos', function () {
+    return view('contactanos/view');
+})->name('View_Contactanos');
+
+Route::get('/registrar_contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
+
+Route::delete('/registrar_contactanos/{id_contacto}', [ContactanosController::class , 'destroy'])->name('contactanos.destroy');
+// Route::get('/registrar_contactanos/{id_contacto}', [ContactanosController::class , 'show'])->name('contactanos.show');
+// Route::patch('/registrar_contactanos/{id_contacto}', [ContactanosController::class , 'update'])->name('contactanos.update');
 
 require __DIR__.'/auth.php';

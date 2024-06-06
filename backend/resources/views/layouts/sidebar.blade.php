@@ -51,5 +51,8 @@
     <x-nav-link :href="route('View_Cursos')" :active="request()->routeIs('View_Cursos')">
         {{ __('Cursos') }}
     </x-nav-link>
+    <x-nav-link :href="route('View_Contactanos')" :active="request()->routeIs('View_Contactanos')">
+        {{ __('Contáctanos') }}
+    </x-nav-link>
     
 </div>
