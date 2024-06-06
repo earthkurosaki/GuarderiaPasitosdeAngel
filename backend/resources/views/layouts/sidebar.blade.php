@@ -6,7 +6,7 @@
     {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('user')">
         {{ __('User') }}
     </x-nav-link> --}}
-    <x-nav-link :href="route('View_Nino')" :active="request()->routeIs('View_Nino')">
+    <x-nav-link :href="route('NinoD')" :active="request()->routeIs('NinoD')">
         {{ __('Niños') }}
     </x-nav-link>
     <x-nav-link :href="route('View_Tutores')" :active="request()->routeIs('View_Tutores')">
