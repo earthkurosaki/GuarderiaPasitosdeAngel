@@ -68,7 +68,7 @@ class EmpleadosController extends Controller
         $empleado = new Empleados($request->all());
         $empleado->save();
 
-        return view('View_Empleados');
+        return view('/empleados/view');
     }
 
     public function update(Request $request, $id_empleados)

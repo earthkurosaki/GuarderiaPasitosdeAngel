@@ -43,6 +43,8 @@ Route::get('/view/nino', function () {
     return view('nino/view');
 })->name('View_Nino');
 
+//Buscador de ninos
+Route::get('/view/nino', [NinoController::class, 'index2'])->name('NinoD');
 Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
 
 Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
@@ -174,7 +176,7 @@ Route::get('/registrar/empleado', function () {
 })->name('registrar_empleado');
 
 Route::get('/view/empleados', function () {
-    return view('/empleados/view');
+    return view('empleados.view');
 })->name('View_Empleados');
 
 Route::get('/view/empleados', [Empleados_VController::class, 'index2'])->name('View_EmpleadosD');

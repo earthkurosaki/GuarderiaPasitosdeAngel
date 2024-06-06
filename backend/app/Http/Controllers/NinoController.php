@@ -8,16 +8,19 @@ use Illuminate\Support\Facades\DB;
 
 class NinoController extends Controller
 {
-    public function index(Request $request)
+    public function index2(Request $request)
     {
         $search = $request->input('search');
+
         if ($search) {
-            $ninos = DB::table('nino')->where('nombre', 'like', '%' . $search . '%')->get();
+            $ninos = Nino::where('nombre', 'like', '%' . $search . '%')
+                ->orWhere('apellido', 'like', '%' . $search . '%')
+                ->get();
         } else {
-            $ninos = DB::table('nino')->get();
+            $ninos = Nino::all();
         }
 
-        return view('nino.view', ['ninos' => $ninos]); // Asegúrate de que 'view' es el nombre correcto de tu vista
+        return view('nino.view', ['ninos' => $ninos]);
     }
     
     public function show($id_nino)
