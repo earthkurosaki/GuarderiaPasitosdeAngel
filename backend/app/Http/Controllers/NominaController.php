@@ -1,6 +1,6 @@
 <!-- //<?php
 
-// namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Nomina;
@@ -80,3 +80,4 @@ class NominaController extends Controller
     // }
 
 //}
+    }
