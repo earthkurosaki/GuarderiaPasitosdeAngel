@@ -1,8 +1,6 @@
 <x-app-layout>
     @php
-        $empleados = DB::select('select * from empl_v');
-        $emp_views = DB::select('select * from empl_v');
-        // $search = isset($search) ? $search : ''; // Asegúrate de que $search esté definida
+        $empleados = isset($empleados) ? $empleados : []; // Para evitar errores si $empleados no está definido
     @endphp
 
     <x-slot name="header">
@@ -25,21 +23,22 @@
                         </div>
                     </div>
 
-                    <form method="GET" action="{{ route('View_Empleados') }}" class="mb-4 flex items-center space-x-2">
-                        <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ request()->get('search') }}">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
-                            <i class="fas fa-search"></i>
-                            <span>Buscar</span>
-                        </button>
-                        @if (request()->get('search'))
-                            <a href="{{ route('View_Empleados') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
-                                <i class="fas fa-times"></i>
-                                <span>Limpiar</span>
-                            </a>
-                        @endif
+                    <!-- Formulario de Búsqueda -->
+                    <form method="GET" action="{{ route('View_EmpleadosD') }}" class="mt-4">
+                        <div class="flex">
+                            <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por nombre" class="form-input rounded-md shadow-sm mt-1 block w-full">
+                            <button type="submit" class="ml-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buscar</button>
+                        </div>
                     </form>
 
-                    <div class="flow-root">
+                    <!-- Botón de Borrar Búsqueda -->
+                    @if(request('search'))
+                        <form method="GET" action="{{ route('View_EmpleadosD') }}" class="mt-4">
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Borrar Búsqueda</button>
+                        </form>
+                    @endif
+
+                    <div class="flow-root mt-6">
                         <div class="mt-8 overflow-x-auto">
                             <div class="inline-block min-w-full py-2 align-middle">
                                 <table class="w-full divide-y divide-gray-300">
@@ -60,8 +59,6 @@
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Teléfono de Emergencia</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Puesto</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Sueldo Base</th>
-
-
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
@@ -82,8 +79,6 @@
                                                 <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->teleemergencia }}</td>
                                                 <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->puesto }}</td>
                                                 <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->sueldo_base }}</td>
-
-
                                                 <td class="relative whitespace-nowrap py-3 pl-4 pr-3 text-right text-sm font-medium">
                                                     <a href="{{ route('empleados.show', $empleado->id_empleados) }}" class="text-indigo-600 hover:text-indigo-900">Ver</a>
                                                     <a href="{{ route('empleados.update', $empleado->id_empleados) }}" class="text-yellow-600 hover:text-yellow-900">Editar</a>

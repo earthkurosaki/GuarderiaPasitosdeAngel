@@ -13,9 +13,11 @@ use App\Http\Controllers\NominaController;
 use App\Http\Controllers\GananciasVController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\Empleados_VController;
 use App\Http\Controllers\InscripcionaController;
 use App\Http\Controllers\InscripcioncController;
 use App\Http\Controllers\IngresosVController;
+use App\Models\empleados_v;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -174,6 +176,9 @@ Route::get('/registrar/empleado', function () {
 Route::get('/view/empleados', function () {
     return view('/empleados/view');
 })->name('View_Empleados');
+
+Route::get('/view/empleados', [Empleados_VController::class, 'index2'])->name('View_EmpleadosD');
+
 
 Route::post('/registrar/empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
 

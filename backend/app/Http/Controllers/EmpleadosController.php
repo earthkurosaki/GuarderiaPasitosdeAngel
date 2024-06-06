@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empleados;
+use App\Models\empleados_v;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\vistaNomina;
 
 class EmpleadosController extends Controller
 {
+
+
+    
 
     public function indexx()
     {
@@ -28,18 +33,7 @@ class EmpleadosController extends Controller
             return redirect()->route('nominas_view2')->with('error', 'Hubo un error al actualizar las nóminas.');
         }
     }
-    public function index2(Request $request)
-{
-    $search = $request->input('search');
-    if ($search) {
-        $empleados = DB::table('empl_v')->where('nombre', 'like', '%' . $search . '%')->get();
-    } else {
-        $empleados = DB::table('empl_v')->get();
-    }
-    return view('empleados.view', [
-        'empleados' => $empleados // Pasar la variable de búsqueda a la vista
-    ]);
-}
+    
 
     public function index()
     {

@@ -11,14 +11,15 @@ class Empleados_VController extends Controller
     {
         $search = $request->input('search');
 
-        $query = empleados_v::query();
-
         if ($search) {
-            $query->where('id_empleados', $search);
+            $empleados = empleados_v::where('nombre', 'like', '%' . $search . '%')
+                ->orWhere('apellido', 'like', '%' . $search . '%')
+                ->orWhere('cedula', 'like', '%' . $search . '%')
+                ->get();
+        } else {
+            $empleados = empleados_v::all();
         }
 
-        $datos = $query->get();
-
-        return view('empleados.view', compact('datos'));
+        return view('empleados.view', ['empleados' => $empleados]);
     }
 }
