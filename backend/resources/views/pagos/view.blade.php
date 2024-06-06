@@ -21,6 +21,7 @@
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                             <a type="button" href="{{ route('registrar_pago') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
                         </div> 
+                        
                     </div>
 
                     <div class="flow-root">
@@ -61,6 +62,7 @@
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $pago->facturado }}</td>
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
                                                    
+                                                    
                                                     
                                                 </td>
                                             </tr>

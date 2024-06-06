@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pagos;
+use PDF;
 
 class PagoController extends Controller
 {
