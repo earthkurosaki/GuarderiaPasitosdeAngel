@@ -79,6 +79,29 @@ Route::delete('/registra_puesto/{id_puesto}', [PuestosController::class , 'destr
 Route::get('/registra_puesto/{id_puesto}', [PuestosController::class , 'show'])->name('puestos.show');
 Route::patch('/registra_puesto/{id_puesto}', [PuestosController::class , 'update'])->name('puestos.update');
 
+// Rutas de las nominas
+Route::get('/registrar/nomina', function () {
+    return view('nominas/form'); 
+})->name('registrar_nomina');
+
+Route::get('/view/nominas', function () {
+    return view('nominas/view');
+})->name('View_Nominas');
+
+Route::get('/registra_nomina', [NominaController::class, 'store'])->name('nomina.store');
+// Ruta para mostrar la vista de nóminas
+Route::get('/nomina_empleado/index', [vistaNominaController::class, 'index'])->name('nominas_view');
+Route::get('/nomina_empleado/index', [EmpleadosController::class, 'indexx'])->name('nominas_view2');
+
+// Ruta para pagar las nóminas
+Route::patch('/nominas/view', [NominaController::class, 'pagarNomina'])->name('nomina_pagar');
+Route::delete('/registra_nomina/{cod_nomina}', [NominaController::class , 'destroy'])->name('nomina.destroy');
+Route::get('/registra_nomina/{cod_nomina}', [NominaController::class , 'show'])->name('nomina.show');
+Route::patch('/registra_nomina/{cod_nomina}', [NominaController::class , 'update'])->name('nomina.update');
+
+
+//ruta para boton de empleados
+Route::patch('/empleados/view', [EmpleadosController::class, 'activarNomina'])->name('activa_nomina');
 
 //Rutas servicios
 Route::get('/registrar/servicio', function () {
@@ -145,19 +168,18 @@ Route::patch('/registra_gastos/{id_gasto}', [GastosController::class , 'update']
 
 //Rutas empleados
 Route::get('/registrar/empleado', function () {
-    return view('empleados/form'); 
+    return view('/empleados/form'); 
 })->name('registrar_empleado');
 
 Route::get('/view/empleados', function () {
-    return view('empleados/view');
+    return view('/empleados/view');
 })->name('View_Empleados');
 
-Route::get('/registra_empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
+Route::post('/registrar/empleado', [EmpleadosController::class, 'store'])->name('empleados.store');
 
-Route::delete('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'destroy'])->name('empleados.destroy');
-Route::get('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'show'])->name('empleados.show');
-Route::patch('/registra_empleado/{id_empleado}', [EmpleadosController::class , 'update'])->name('empleados.update');
-
+Route::delete('/registrar/empleado/{id_empleados}', [EmpleadosController::class, 'destroy'])->name('empleados.destroy');
+Route::get('/registrar/empleado/{id_empleados}', [EmpleadosController::class, 'show'])->name('empleados.show');
+Route::patch('/registrar/empleado/{id_empleados}', [EmpleadosController::class, 'update'])->name('empleados.update');
 
 //Rutas pago
 Route::get('/registrar/pagos', function () {

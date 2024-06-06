@@ -4,7 +4,7 @@
             
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="POST" action="{{ route('nominas.update', ['cod_nomina' => $nomina->cod_nomina]) }}">
+                    <form method="POST" action="{{ route('nomina.update', ['cod_nomina' => $nomina->cod_nomina]) }}">
                         @csrf
                         @method('PATCH')
                         <div class="space-y-6">
@@ -30,7 +30,7 @@
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Días Laborados</label>
-                                <input type="date" placeholder="Días Laborados" name="dias_laborados" id="dias_laborados-{{ $nomina->cod_nomina }}" value="{{ $nomina->dias_laborados }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <input type="number" placeholder="Días Laborados" name="dias_laborados" id="dias_laborados-{{ $nomina->cod_nomina }}" value="{{ $nomina->dias_laborados }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>
@@ -56,6 +56,11 @@
                             <div>
                                 <label class="block text-sm font-bold text-black">Pago Final</label>
                                 <input type="text" placeholder="Pago Final" name="pago_final" id="pago_final-{{ $nomina->cod_nomina }}" value="{{ $nomina->pago_final }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-black">Estado</label>
+                                <input type="text" placeholder="Estado" name="estado" id="estado-{{ $nomina->cod_nomina }}" value="{{ $nomina->estado }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
                                                  
                             <div class="mt-6 flex items-center gap-4">

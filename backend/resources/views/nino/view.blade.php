@@ -1,4 +1,7 @@
 <x-app-layout>
+    @php
+        $ninos = DB::select('select * from nino');
+    @endphp
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Niños') }}

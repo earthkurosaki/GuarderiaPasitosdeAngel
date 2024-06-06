@@ -5,9 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleados;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Models\vistaNomina;
 
 class EmpleadosController extends Controller
 {
+
+    public function indexx()
+    {
+        $nominas = vistaNomina::all(); // Obtener todas las nóminas
+        return view('nomina_empleado.index', compact('nominas')); // Retornar la vista con las nóminas
+    }
+    public function activarNomina()
+    {
+        try {
+            DB::table('empleados')->update(['nomina_activa' => 'a']);
+
+            return redirect()->route('nominas_view')->with('success', 'Todas las nóminas han sido pagadas.');
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar la tabla nomina: ' . $e->getMessage());
+
+            return redirect()->route('nominas_view2')->with('error', 'Hubo un error al actualizar las nóminas.');
+        }
+    }
     public function index2(Request $request)
 {
     $search = $request->input('search');
@@ -54,7 +74,7 @@ class EmpleadosController extends Controller
         $empleado = new Empleados($request->all());
         $empleado->save();
 
-        return view('empleados.view');
+        return view('View_Empleados');
     }
 
     public function update(Request $request, $id_empleados)
@@ -79,9 +99,9 @@ class EmpleadosController extends Controller
     $empleado = Empleados::find($id_empleados);
     if ($empleado) {
         $empleado->update($validatedData);
-        return redirect()->route('View_Empleado')->with('success', 'Empleado actualizado exitosamente');
+        return redirect()->route('View_Empleados')->with('success', 'Empleado actualizado exitosamente');
     } else {
-        return redirect()->route('View_Empleado')->with('error', 'Empleado no encontrado');
+        return redirect()->route('View_Empleados')->with('error', 'Empleado no encontrado');
     }
 }
 

@@ -25,14 +25,14 @@
                         </div>
                     </div>
 
-                    <form method="GET" action="{{ route('View_EmpleadoV') }}" class="mb-4 flex items-center space-x-2">
+                    <form method="GET" action="{{ route('View_Empleados') }}" class="mb-4 flex items-center space-x-2">
                         <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ request()->get('search') }}">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                             <i class="fas fa-search"></i>
                             <span>Buscar</span>
                         </button>
                         @if (request()->get('search'))
-                            <a href="{{ route('View_EmpleadoV') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+                            <a href="{{ route('View_Empleados') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                                 <i class="fas fa-times"></i>
                                 <span>Limpiar</span>
                             </a>

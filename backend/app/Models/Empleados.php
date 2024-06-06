@@ -13,6 +13,6 @@ class Empleados extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     public $timestamps = false;
-    protected $fillable = ['id_empleados', 'nombre', 'apellido', 'cedula', 'fechanac', 'genero', 'direccion', 'telefono', 'correo_electronico', 'fechaingreso', 'horariolabo', 'foracademica', 'teleemergencia', 'id_puesto',  'sueldo_base'];
+    protected $fillable = ['id_empleados', 'nombre', 'apellido', 'cedula', 'fechanac', 'genero', 'direccion', 'telefono', 'correo_electronico', 'fechaingreso', 'horariolabo', 'foracademica', 'teleemergencia', 'id_puesto',  'sueldo_base', 'nomina_activa'];
 
 }
