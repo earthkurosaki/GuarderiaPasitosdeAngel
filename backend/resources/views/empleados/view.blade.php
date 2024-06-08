@@ -1,6 +1,6 @@
 <x-app-layout>
     @php
-        $empleado = DB::select('select * from empleados');
+        $empleados = isset($empleados) ? $empleados : []; // Para evitar errores si $empleados no está definido
     @endphp
 
     <x-slot name="header">
@@ -19,15 +19,26 @@
                             <p class="mt-2 text-sm text-gray-700">Lista de todos los {{ __('empleados') }}</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-<<<<<<< Updated upstream
                             <a type="button" href="{{ route('registrar_empleado') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
-=======
-                            <a type="button" href="{{ route('Registrar') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir</a>
->>>>>>> Stashed changes
                         </div>
                     </div>
 
-                    <div class="flow-root">
+                    <!-- Formulario de Búsqueda -->
+                    <form method="GET" action="{{ route('View_EmpleadosD') }}" class="mt-4">
+                        <div class="flex">
+                            <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por nombre" class="form-input rounded-md shadow-sm mt-1 block w-full">
+                            <button type="submit" class="ml-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buscar</button>
+                        </div>
+                    </form>
+
+                    <!-- Botón de Borrar Búsqueda -->
+                    @if(request('search'))
+                        <form method="GET" action="{{ route('View_EmpleadosD') }}" class="mt-4">
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Borrar Búsqueda</button>
+                        </form>
+                    @endif
+
+                    <div class="flow-root mt-6">
                         <div class="mt-8 overflow-x-auto">
                             <div class="inline-block min-w-full py-2 align-middle">
                                 <table class="w-full divide-y divide-gray-300">
@@ -43,55 +54,38 @@
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Teléfono</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Correo Electrónico</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Fecha_Ingreso</th>
-                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Horario_Laboral</th>
-                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Fora_Academica</th>
-                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Telefono_Emergencia</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Horario Laboral</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Fora Académica</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Teléfono de Emergencia</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Puesto</th>
                                             <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Sueldo Base</th>
-                                            <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
-                                        @foreach ($empleado as $empleados)
-                                            <tr class="even:bg-gray-50">
-<<<<<<< Updated upstream
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->id_empleado }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->nombre }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->apellido }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->cedula }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->fechanac }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->genero }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->dirrecion }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->telefono }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->correo_electronico }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->fechaingreso }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->horariolabo }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->foracademica }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->teleemergencia }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->id_puesto }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleados->sueldo_base }}</td>
-=======
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->id_empleados }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->nombre }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->apellido }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->cedula }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->fechanac }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->genero }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->direccion }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->telefono }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->correo_electronico }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->fechaingreso }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->horariolabo }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->foracademica }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->teleemergencia }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $empleado->id_puesto }}</td>
->>>>>>> Stashed changes
-                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                                                    <a href="{{ route('empleados.show', $empleados->id_empleado) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Editar') }}</a>
-                                                    <form action="{{ route('empleados.destroy', $empleados->id_empleado) }}" method="POST" class="inline">
+                                        @foreach ($empleados as $empleado)
+                                            <tr>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->id_empleados }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-900">{{ $empleado->nombre }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-900">{{ $empleado->apellido }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->cedula }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->fechanac }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->genero }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->direccion }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->telefono }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->correo_electronico }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->fechaingreso }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->horariolabo }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->foracademica }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->teleemergencia }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->puesto }}</td>
+                                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ $empleado->sueldo_base }}</td>
+                                                <td class="relative whitespace-nowrap py-3 pl-4 pr-3 text-right text-sm font-medium">
+                                                    <a href="{{ route('empleados.show', $empleado->id_empleados) }}" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                                                    <a href="{{ route('empleados.update', $empleado->id_empleados) }}" class="text-yellow-600 hover:text-yellow-900">Editar</a>
+                                                    <form action="{{ route('empleados.destroy', $empleado->id_empleados) }}" method="POST" style="display:inline">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('empleados.destroy', $empleados->id_empleado) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('¿Quieres eliminar este dato?') ? this.closest('form').submit() : false;">{{ __('Borrar') }}</a>
+                                                        <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
                                                     </form>
                                                 </td>
                                             </tr>

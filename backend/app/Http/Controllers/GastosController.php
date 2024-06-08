@@ -13,43 +13,40 @@ class GastosController extends Controller
         return view('/gastos/update', ['gasto' => $gasto]);
     }
     public function store(Request $request)
+{
+    $request->validate([
+        'concepto' => 'required|string',
+        'monto' => 'required',
+        'descripcion' => 'nullable|string',
+    ]);
+
+    $gasto = new Gastos();
+    $gasto->concepto = $request->input('concepto');
+    $gasto->monto = $request->input('monto');
+    $gasto->descripcion = $request->input('descripcion');
+
+    $gasto->save();
+
+    return view('gastos.view');
+}
+
+public function update(Request $request, $id_gasto)
     {
-        $request->validate([
-            'concepto' => 'required|string',
-            'monto' => 'required',
-            'fecha' => 'required',
-            'descripcion' => 'nullable|string',
-        ]);
-
-        $gasto = new Gastos($request->all());
-        $gasto->save();
-
-        return view('/gastos/view');
-    }
-
-    public function update(Request $request, $id_gasto)
-    {
-        //Validar el request
+        // Validar el request
         $validatedData = $request->validate([
             'concepto' => 'required|string',
             'monto' => 'required',
-            'fecha' => 'required',
-            'descripcion' => 'nullable|string',
+            'descripcion' => 'nullable',
+    
+            
         ]);
-
-        //Buscar el registro existente
+    
         $gasto = Gastos::find($id_gasto);
         if ($gasto) {
-            $gasto->concepto = $validatedData['concepto'];
-            $gasto->monto = $validatedData['monto'];
-            $gasto->fecha = $validatedData['fecha'];
-            $gasto->descripcion = $validatedData['descripcion'];
-
-            $gasto->save();
-
-            return view('gastos/view', ['gasto' => $gasto]);
+            $gasto->update($validatedData);
+            return redirect()->route('View_Gastos')->with('success', 'Gasto actualizado exitosamente');
         } else {
-            return view('gastos/view')->with('error', 'Registro no encontrado');
+            return redirect()->route('View_Gastos')->with('error', 'Gasto no encontrado');
         }
     }
 

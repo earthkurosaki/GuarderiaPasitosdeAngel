@@ -17,17 +17,12 @@
                                         class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Atrás</a>
                                 </div>
                             </div>
-
                             <div>
                                 <label class="block text-sm font-bold text-black">Servicio</label>
-                                <select name="nombre" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="Clases">Clases</option>
-                                    <option value="Guarderia">Guarderia</option>
-                                    <option value="Sala de tareas">Sala de tareas</option>
-                                    <option value="Cuidado sabatino">Cuidado sabatino</option>
-                                    <option value="Campamentos">Campamentos</option>
-                                </select>
+                                <input type="text" placeholder="Servicio" name="nombre"
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                             </div>
+
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Costo</label>

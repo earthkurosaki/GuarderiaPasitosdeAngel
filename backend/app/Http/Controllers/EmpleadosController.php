@@ -1,22 +1,52 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Empleados;
+use App\Models\empleados_v;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Models\vistaNomina;
 
 class EmpleadosController extends Controller
 {
-    public function show($id_empleado)
-    {
-<<<<<<< Updated upstream
-        $empleado = Empleados::find($id_empleado);
-=======
-        $empleado = Empleados::find($id_empleados);
->>>>>>> Stashed changes
-        return view('/empleados/update', ['empleado' => $empleado]);
-    }
+
 
     
+
+    public function indexx()
+    {
+        $nominas = vistaNomina::all(); // Obtener todas las nóminas
+        return view('nomina_empleado.index', compact('nominas')); // Retornar la vista con las nóminas
+    }
+    public function activarNomina()
+    {
+        try {
+            DB::table('empleados')->update(['nomina_activa' => 'a']);
+
+            return redirect()->route('nominas_view')->with('success', 'Todas las nóminas han sido pagadas.');
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar la tabla nomina: ' . $e->getMessage());
+
+            return redirect()->route('nominas_view2')->with('error', 'Hubo un error al actualizar las nóminas.');
+        }
+    }
+    
+
+    public function index()
+    {
+        $empleados = Empleados::all();
+        return view('empleados.view', compact('empleados'));
+    }
+
+    public function show($id_empleados)
+    {
+        $empleado = Empleados::find($id_empleados);
+        return view('empleados.update', ['empleado' => $empleado]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -25,14 +55,13 @@ class EmpleadosController extends Controller
             'cedula' => 'required',
             'fechanac' => 'required',
             'genero' => 'required|string',
-            'dirreccion' => 'required|string',
+            'direccion' => 'required|string',
             'telefono' => 'required',
             'correo_electronico' => 'required|string',
-            'fechaingreso' => 'required',
             'horariolabo' => 'required',
             'foracademica' => 'required|string',
-            'teleemergencia' => 'required',
-            'id_puesto' => 'required|string',
+            'teleemergencia' => 'nullable',
+            'id_puesto' => 'required',
             'sueldo_base' => 'required',
         ]);
 
@@ -42,62 +71,43 @@ class EmpleadosController extends Controller
         return view('/empleados/view');
     }
 
-    public function update(Request $request, $id_empleado)
-    {
-        //Validar el request
-        $validatedData = $request->validate([
-            'nombre' => 'required|string',
-            'apellido' => 'required|string',
-            'cedula' => 'required',
-            'fechanac' => 'required',
-            'genero' => 'required|string',
-            'dirreccion' => 'required|string',
-            'telefono' => 'required',
-            'correo_electronico' => 'required|string',
-            'fechaingreso' => 'required',
-            'horariolabo' => 'required',
-            'foracademica' => 'required|string',
-            'teleemergencia' => 'required',
-            'id_puesto' => 'required|string',
-            'sueldo_base' => 'required',
-        ]);
+    public function update(Request $request, $id_empleados)
+{
+    $validatedData = $request->validate([
+        'nombre' => 'required|string',
+        'apellido' => 'required|string',
+        'cedula' => 'required',
+        'fechanac' => 'required',
+        'genero' => 'required|string',
+        'direccion' => 'required|string', // Asegúrate que 'direccion' sea el nombre correcto
+        'telefono' => 'required',
+        'correo_electronico' => 'required|string',
+        'fechaingreso' => 'nullable',
+        'horariolabo' => 'required',
+        'foracademica' => 'required|string',
+        'teleemergencia' => 'nullable',
+        'id_puesto' => 'required',
+        'sueldo_base' => 'required',
+    ]);
 
-        //Buscar el registro existente
-        $empleado = Empleados::find($id_empleado);
-        if ($empleado) {
-            $empleado->nombre = $validatedData['nombre'];
-            $empleado->apellido = $validatedData['apellido'];
-            $empleado->cedula = $validatedData['cedula'];
-            $empleado->fechanac = $validatedData['fechanac'];
-            $empleado->genero = $validatedData['genero'];
-            $empleado->dirreccion = $validatedData['dirreccion'];
-            $empleado->telefono = $validatedData['telefono'];
-            $empleado->correo_electronico = $validatedData['correo_electronico'];
-            $empleado->fechaingreso = $validatedData['fechaingreso'];
-            $empleado->horariolabo = $validatedData['horariolabo'];
-            $empleado->foracademica = $validatedData['foracademica'];
-            $empleado->teleemergencia = $validatedData['teleemergencia'];
-            $empleado->id_puesto = $validatedData['id_puesto'];
-            $empleado->sueldo_base = $validatedData['sueldo_base'];
-
-            $empleado->save();
-
-            return view('empleados/view', ['empleado' => $empleado]);
-        } else {
-            return view('empleados/view')->with('error', 'Registro no encontrado');
-        }
+    $empleado = Empleados::find($id_empleados);
+    if ($empleado) {
+        $empleado->update($validatedData);
+        return redirect()->route('View_EmpleadosD')->with('success', 'Empleado actualizado exitosamente');
+    } else {
+        return redirect()->route('View_EmpleadosD')->with('error', 'Empleado no encontrado');
     }
+}
 
-    public function destroy($id_empleado)
+    public function destroy($id_empleados)
     {
-        $empleado = Empleados::find($id_empleado);
+        $empleado = Empleados::find($id_empleados);
 
         if ($empleado) {
             $empleado->delete();
-            return view('/empleados/view')->with('success', 'Todo borrado correctamente');
+            return redirect()->route('View_EmpleadosD')->with('success', 'Empleado eliminado exitosamente');
         } else {
-            return view('/empleados/view')->with('error', 'Registro no encontrado');
+            return redirect()->route('View_EmpleadosD')->with('error', 'Empleado no encontrado');
         }
-
     }
 }

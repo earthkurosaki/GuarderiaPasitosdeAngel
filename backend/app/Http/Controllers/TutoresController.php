@@ -2,8 +2,25 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tutores;
-class TutoresController extends Controller
+use Illuminate\Support\Facades\DB;
+
+
+
+class TutoresController extends Controller{
+    public function index(Request $request)
 {
+    $search = $request->input('search');
+    if ($search) {
+        $tutores = DB::table('tutores')->where('nombre', 'like', '%' . $search . '%')->get();
+    } else {
+        $tutores = DB::table('tutores')->get();
+    }
+
+    dd($search, $tutores); // Depurar la variable $search y la colección $tutores
+
+    return view('tutores.view', ['tutores' => $tutores, 'search' => $search]); // Pasar la variable de búsqueda a la vista
+}
+    
     public function show($id_tutor)
     {
         $tutor = Tutores::find($id_tutor);
@@ -24,10 +41,11 @@ class TutoresController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'estado_civil' => 'required|string',
+            'rel_parental' => 'required|string',
         ]);
         $tutor = new Tutores($request->all());
         $tutor->save();
-        return view('/tutores/view');
+        return view('dashboard');
     }
 
     public function update(Request $request, $id_tutor)
@@ -46,6 +64,7 @@ class TutoresController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'estado_civil' => 'required|string',
+            'rel_parental' => 'required|string',
         ]);
 
         //Buscar el registro existente
@@ -63,21 +82,17 @@ class TutoresController extends Controller
             $tutor->telefono = $validatedData['telefono'];
             $tutor->email = $validatedData['email'];
             $tutor->estado_civil = $validatedData['estado_civil'];
+            $tutor->rel_parental = $validatedData['rel_parental'];
 
             $tutor->save();
 
-<<<<<<< Updated upstream
 
-            return view('tutores/view', ['tutor' => $tutor]);
+            return view('View_Tutores', ['tutor' => $tutor]);
         } else {
-            return view('tutores/view')->with('error', 'Registro no encontrado');
-
-=======
-            return view('tutores/view', ['tutor' => $tutor]);
-        } else {
-            return view('tutores/view')->with('error', 'Registro no encontrado');
->>>>>>> Stashed changes
+            return view('View_Tutores')->with('error', 'Registro no encontrado');
         }
+
+        
     }
 
     public function destroy($id_tutor)
@@ -92,4 +107,7 @@ class TutoresController extends Controller
         }
 
     }
-}
+} 
+
+
+  
