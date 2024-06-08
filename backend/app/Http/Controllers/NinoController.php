@@ -9,26 +9,25 @@ use Illuminate\Support\Facades\DB;
 class NinoController extends Controller
 {
     public function index2(Request $request)
-    {
-        $search = $request->input('search');
+{
+    $search = $request->input('search');
 
-        if ($search) {
-            $ninos = Nino::where('nombre', 'like', '%' . $search . '%')
-                ->orWhere('apellido', 'like', '%' . $search . '%')
-                ->get();
-        } else {
-            $ninos = Nino::all();
-        }
-
-        return view('nino.view', ['ninos' => $ninos]);
+    if ($search) {
+        $ninos = Nino::where('nombre', 'like', '%' . $search . '%')
+            ->orWhere('apellido', 'like', '%' . $search . '%')
+            ->get();
+    } else {
+        $ninos = Nino::all();
     }
+
+    return view('nino.view', compact('ninos'));
+}
     
     public function show($id_nino)
     {
         $nino = Nino::find($id_nino);
         return view('nino.update', ['nino' => $nino]);
     }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -46,11 +45,11 @@ class NinoController extends Controller
             'discapacidad' => 'required',
             'desc_discapacidad' => 'nullable|string',
         ]);
-
+    
         $nino = new Nino($request->all());
         $nino->save();
-
-        return redirect()->route('View_Nino');
+    
+        return redirect()->back()->with('success', 'Niño registrado con éxito');
     }
 
     public function update(Request $request, $id_nino)
@@ -74,9 +73,9 @@ class NinoController extends Controller
         $nino = Nino::find($id_nino);
         if ($nino) {
             $nino->update($validatedData);
-            return redirect()->route('View_Nino')->with('success', 'Registro actualizado correctamente');
+            return redirect()->route('NinoD')->with('success', 'Registro actualizado correctamente');
         } else {
-            return redirect()->route('View_Nino')->with('error', 'Registro no encontrado');
+            return redirect()->route('NinoD')->with('error', 'Registro no encontrado');
         }
     }
 
@@ -85,9 +84,9 @@ class NinoController extends Controller
         $nino = Nino::find($id_nino);
         if ($nino) {
             $nino->delete();
-            return redirect()->route('View_Nino')->with('success', 'Registro eliminado correctamente');
+            return redirect()->route('NinoD')->with('success', 'Registro eliminado correctamente');
         } else {
-            return redirect()->route('View_Nino')->with('error', 'Registro no encontrado');
+            return redirect()->route('NinoD')->with('error', 'Registro no encontrado');
         }
     }
 }

@@ -10,7 +10,7 @@ class vistaNomina extends Model
 
     // Define los campos que son accesibles masivamente
     protected $fillable = [
-        'id_empleado', 'nombre', 'apellido', 'cedula', 'fecha_ingreso', 'puesto',
+       'cod_nomina' ,'id_empleado', 'nombre', 'apellido', 'cedula', 'fecha_ingreso', 'puesto',
         'sueldo_base', 'dias_laborados', 'hora_extras', 'comision', 'bonificacion',
         'vacaciones', 'monto_final'
     ];

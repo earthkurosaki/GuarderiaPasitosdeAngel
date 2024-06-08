@@ -15,7 +15,7 @@
                                     <p class="mt-2 mb-5 text-sm text-gray-700">Registra un {{ __('niño') }}</p>
                                 </div>
                                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                                    <a type="button" href="{{ route('View_Nino') }}"
+                                    <a type="button" href="{{ route('NinoD') }}"
                                         class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Atrás</a>
                                 </div>
                             </div>
@@ -210,9 +210,9 @@
                             <div>
                                 <label class="block text-sm font-bold text-black">Relación Parental</label>
                                 <select name="rel_parental" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="Masculino">Padre</option>
-                                    <option value="Femenino">Madre</option>
-                                    <option value="Femenino">Otro</option>
+                                    <option value="Padre">Padre</option>
+                                    <option value="Madre">Madre</option>
+                                    <option value="Otro">Otro</option>
                                 </select>
                             </div>
 

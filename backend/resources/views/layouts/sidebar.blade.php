@@ -17,8 +17,12 @@
     </x-nav-link>
 
     <x-nav-link :href="route('View_NominaDet')" :active="request()->routeIs('View_NominaDet')">
-    {{ __('Nominas') }}
+    {{ __('Nóminas') }}
     </x-nav-link>
+
+    <x-nav-link :href="route('View_Nominas')" :active="request()->routeIs('View_Nominas')">
+        {{ __('Detalle de nóminas') }}
+        </x-nav-link>
     
     <x-nav-link :href="route('View_Pagos')" :active="request()->routeIs('View_Pagos')">
         {{ __('Pagos') }}
@@ -46,7 +50,9 @@
     <x-nav-link :href="route('View_Cursos')" :active="request()->routeIs('View_Cursos')">
         {{ __('Cursos') }}
     </x-nav-link>
-
+    <x-nav-link :href="route('View_Contactanos')" :active="request()->routeIs('View_Contactanos')">
+        {{ __('Contáctanos') }}
+    </x-nav-link>
 
     
 </div>

@@ -32,6 +32,8 @@
                         <thead>
                             <tr>
                                 <!-- Agrega los encabezados de las columnas de tu vista -->
+                                <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cod_Nomina</th>
+
                                 <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id del Empleado</th>
                                 <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
                                 <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Apellido</th>
@@ -51,6 +53,8 @@
                             @foreach($datos as $dato)
                                 <tr>
                                     <!-- Muestra los datos de las columnas -->
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $dato->cod_nomina }}</td>
+
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $dato->id_empleados }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $dato->nombre }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $dato->apellido }}</td>
@@ -78,11 +82,11 @@
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">Pagar Nómina</button>
             </form>
 
-            <form action="{{ route('activa_nomina') }}" method="POST">
+            {{-- <form action="{{ route('activa_nomina') }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">Reactivar Nómina</button>
-            </form>
+            </form> --}}
         </div>
     </div>
 

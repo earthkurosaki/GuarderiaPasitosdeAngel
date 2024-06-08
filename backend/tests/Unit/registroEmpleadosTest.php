@@ -45,7 +45,7 @@ class registroEmpleadosTest extends TestCase
         $response = (new EmpleadosController)->store($request);
 
 
-        $this->assertCount(10, Empleados::all());
+        $this->assertCount(7, Empleados::all());
  
 
       

@@ -72,14 +72,21 @@ $puesto = DB::select('select * from puestos');
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Horario Laboral</label>
-                                <input type="text" placeholder="Horario Laboral" name="horariolabo"
-                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                                <select name="foracademica" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    <option value="Matutino">Matutino</option>
+                                    <option value="Vespertino">Vespertino</option>
+                                    <option value="Completo">Completo</option>
+                                </select>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Fora Académica</label>
-                                <input type="text" placeholder="Fora Académica" name="foracademica"
-                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                                <select name="foracademica" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    <option value="Ninguno">Ninguno</option>
+                                    <option value="Primario">Primario</option>
+                                    <option value="Secundario">Bachiller</option>
+                                    <option value="Universitario">Universitario</option>
+                                </select>
                             </div>
 
                             

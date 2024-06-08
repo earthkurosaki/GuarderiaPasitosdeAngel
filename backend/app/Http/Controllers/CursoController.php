@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Cursos;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Empleados;
 class CursoController extends Controller
 {
@@ -32,39 +34,30 @@ class CursoController extends Controller
 
     public function update(Request $request, $id_curso)
     {
-        
-        //Validar el request
+        // Validar el request
         $validatedData = $request->validate([
-            'nombre' => 'required|string',
-            'descripcion' => 'nullable',
-            'duracion' => 'nullable|string',
-            'horario' => 'required',
-            'dia' => 'required|string',
-            'id_empleados' => 'required',
+            'nombre' => 'required|string|max:75',
+            'descripcion' => 'nullable|string',
+            'duracion' => 'nullable|string|max:75',
+            'horario' => 'required|string',
+            'dia' => 'required|string|max:75',
+            'id_empleados' => 'required|integer',
+            'num_ninos' => 'nullable|integer',
         ]);
-
-        //Buscar el registro existente
-        dd($id_curso);
+    
         try {
-           
+            // Buscar el registro existente
             $curso = Cursos::findOrFail($id_curso);
+            $curso->update($validatedData);
     
-            // Actualizar los campos del curso con los datos del formulario
-            $curso->nombre = $validatedData['nombre'];
-            $curso->descripcion = $validatedData['descripcion'];
-            $curso->duracion = $validatedData['duracion'];
-            $curso->horario = $validatedData['horario'];
-            $curso->dia = $validatedData['dia'];
-            $curso->id_empleados = $validatedData['id_empleados'];
-    
-            // Guardar los cambios en la base de datos
-            $curso->save();
-
-            return view('cursos/view', ['curso' => $curso]);
-        } catch (\Exception $e){
-            return view('cursos/view')->with('error', 'Registro no encontrado');
+            return redirect()->route('View_Cursos')->with('success', 'Curso actualizado exitosamente');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('View_Cursos')->with('error', 'Curso no encontrado');
+        } catch (\Exception $e) {
+            return redirect()->route('View_Cursos')->with('error', 'Ocurrió un error al actualizar el curso');
         }
     }
+    
 
     public function destroy($id_curso)
     {

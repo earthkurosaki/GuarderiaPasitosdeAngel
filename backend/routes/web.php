@@ -1,5 +1,6 @@
 <?php 
 use App\Http\Controllers\ActividadesController;
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\GananciasController;
 use App\Http\Controllers\GastosController;
 use App\Http\Controllers\NinoController;
@@ -17,7 +18,9 @@ use App\Http\Controllers\Empleados_VController;
 use App\Http\Controllers\InscripcionaController;
 use App\Http\Controllers\InscripcioncController;
 use App\Http\Controllers\IngresosVController;
+use App\Http\Controllers\TutorNinoController;
 use App\Models\empleados_v;
+use App\Models\Contactanos;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,22 +37,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Rutas niños
+
+
 Route::get('/registrar/nino', function () {
-    return view('nino/form');
+    return view('nino.form'); 
 })->name('registrar_nino');
 
-Route::get('/view/nino', function () {
-    return view('nino/view');
-})->name('View_Nino');
-
-//Buscador de ninos
-Route::get('/view/nino', [NinoController::class, 'index2'])->name('NinoD');
-Route::get('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
-
-Route::delete('/registra_nino/{id_nino}', [NinoController::class , 'destroy'])->name('nino.destroy');
-Route::get('/registra_nino/{id_nino}', [NinoController::class , 'show'])->name('nino.show');
-Route::patch('/registra_nino/{id_nino}', [NinoController::class , 'update'])->name('nino.update');
+Route::get('/view/ninos', [NinoController::class, 'index2'])->name('NinoD');
+Route::post('/registra_nino', [NinoController::class, 'store'])->name('nino.store');
+Route::get('/nino/{id_nino}', [NinoController::class, 'show'])->name('nino.show');
+Route::delete('/nino/{id_nino}', [NinoController::class, 'destroy'])->name('nino.destroy');
+Route::patch('/nino/{id_nino}', [NinoController::class, 'update'])->name('nino.update');
 
 
 // Rutas tutores
@@ -92,6 +90,9 @@ Route::get('/view/nominas', function () {
     return view('nominas/view');
 })->name('View_Nominas');
 
+Route::get('/nominas', [NominaController::class, 'index'])->name('nomina.index');
+Route::get('/nominas/{id}', [NominaController::class, 'show'])->name('nomina.show');
+Route::get('/nominas/search', [NominaController::class, 'search'])->name('nomina.search');
 Route::get('/registra_nomina', [NominaController::class, 'store'])->name('nomina.store');
 // Ruta para mostrar la vista de nóminas
 Route::get('/nomina_empleado/index', [vistaNominaController::class, 'index'])->name('nominas_view');
@@ -259,8 +260,24 @@ Route::get('/ganancias_guarderia', [GananciasVController::class, 'index'])->name
 Route::get('/ingresos_guarderia', [IngresosVController::class, 'index'])->name('View_IngresosDet');
 
 
+// Ruta de la vista de los ingresos
+Route::get('/tutorninov', [TutorNinoController::class, 'index'])->name('View_TutorNiNoD');
 
 
+//Rutas contactanos
+Route::get('/registrar/contactanos', function () {
+    return view('cursos/form'); 
+})->name('registrar_contactanos');
+
+Route::get('/view/contactanos', function () {
+    return view('contactanos/view');
+})->name('View_Contactanos');
+
+Route::get('/registrar_contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
+
+Route::delete('/registrar_contactanos/{id_contacto}', [ContactanosController::class , 'destroy'])->name('contactanos.destroy');
+// Route::get('/registrar_contactanos/{id_contacto}', [ContactanosController::class , 'show'])->name('contactanos.show');
+// Route::patch('/registrar_contactanos/{id_contacto}', [ContactanosController::class , 'update'])->name('contactanos.update');
 
 
 require __DIR__.'/auth.php';

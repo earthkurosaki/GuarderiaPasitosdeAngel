@@ -12,7 +12,19 @@ use Illuminate\Support\Facades\Log;
 class NominaController extends Controller
 {
 
-    
+    public function search(Request $request)
+{
+    $search = $request->input('search');
+
+    $nominas = DB::table('nomina')
+                ->join('salario', 'nomina.cod_salario', '=', 'salario.cod_salario')
+                ->join('empleados', 'salario.id_empleados', '=', 'empleados.id_empleados')
+                ->where('empleados.nombre', 'LIKE', "%$search%")
+                ->select('nomina.*', 'salario.sueldo_base', 'empleados.nombre', 'empleados.apellido')
+                ->get();
+
+    return view('nominas.view', compact('nominas'));
+}
     public function index()
     {
         $nominas = vistaNomina::all(); // Obtener todas las nóminas
@@ -63,39 +75,29 @@ class NominaController extends Controller
 
     public function update(Request $request, $cod_nomina)
     {
-        //Validar el request
+        // Validar el request
         $validatedData = $request->validate([
-            'cod_salario' => 'required',
+            'cod_salario' => 'required|string',
             'sueldo_d' => 'required',
             'dias_laborados' => 'nullable',
             'hora_extras' => 'nullable',
             'comision' => 'nullable',
-            'bonificacion' => 'nullable',
+            'bonificacion' => 'nullable', // Asegúrate que 'direccion' sea el nombre correcto
             'vacaciones' => 'nullable',
             'pago_final' => 'nullable',
-            'estado' => 'required',
+            'estado' => 'nullable',
+            
         ]);
-
-        //Buscar el registro existente
+    
         $nomina = Nomina::find($cod_nomina);
         if ($nomina) {
-            $nomina->cod_salario = $validatedData['cod_salario'];
-            $nomina->sueldo_d = $validatedData['sueldo_d'];
-            $nomina->dias_laborados = $validatedData['dias_laborados'];
-            $nomina->hora_extras = $validatedData['hora_extras'];
-            $nomina->comision = $validatedData['comision'];
-            $nomina->bonificacion = $validatedData['bonificacion'];
-            $nomina->vacaciones = $validatedData['vacaciones'];
-            $nomina->pago_final = $validatedData['pago_final'];
-            $nomina->estado = $validatedData['estado'];
-    
-            $nomina->save();
-
-            return view('nominas/view', ['nomina' => $nomina]);
+            $nomina->update($validatedData);
+            return redirect()->route('View_Nominas')->with('success', 'Empleado actualizado exitosamente');
         } else {
-            return view('nominas/view')->with('error', 'Registro no encontrado');
+            return redirect()->route('View_Nominas')->with('error', 'Empleado no encontrado');
         }
     }
+
 
     // public function destroy($cod_nomina)
     // {

@@ -1,4 +1,12 @@
 <x-app-layout>
+    @php
+        $search = request('search');
+        $tutores = DB::table('tutores')
+                    ->when($search, function ($query, $search) {
+                        return $query->where('nombre', 'like', '%' . $search . '%');
+                    })
+                    ->get();
+    @endphp
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Tutores') }}
@@ -20,14 +28,14 @@
                     </div>
 
                     <!-- Formulario de búsqueda -->
-                    <form method="GET" action="{{ route('View_Tutores') }}" class="mb-4 flex items-center space-x-2">
+                    <form method="GET" class="mb-4 flex items-center space-x-2">
                         <input type="text" name="search" class="border rounded px-2 py-1" placeholder="Buscar por nombre" value="{{ $search ?? '' }}">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                             <i class="fas fa-search"></i>
                             <span>Buscar</span>
                         </button>
                         @if (!empty($search))
-                            <a href="{{ route('View_Tutores') }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+                            <a href="{{ url()->current() }}" class="bg-gray-500 text-white px-4 py-2 rounded flex items-center space-x-2">
                                 <i class="fas fa-times"></i>
                                 <span>Limpiar</span>
                             </a>
@@ -88,6 +96,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -453,7 +453,7 @@
                     <p class="leading-relaxed mb-5 text-gray-600">
                         Cualquier sugerencia o duda que tenga estamos aquí para servirle.
                     </p>
-                    <form action="insertar2.php" method="post">
+                    <form method="GET" action="{{ route('contactanos.store')}}">
                         <div class="relative mb-4">
                             <label for="nombre" class="leading-7 text-sm text-gray-600">Nombre</label>
                             <input type="text" id="nombre" name="nombre"

@@ -4,7 +4,7 @@
             
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="POST" action="{{ route('nomina.update', ['cod_nomina' => $nomina->cod_nomina]) }}">
+                        <form method="POST" action="{{ route('nomina.update', ['cod_nomina' => $nomina->cod_nomina]) }}">                       
                         @csrf
                         @method('PATCH')
                         <div class="space-y-6">
@@ -30,27 +30,27 @@
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Días Laborados</label>
-                                <input type="number" placeholder="Días Laborados" name="dias_laborados" id="dias_laborados-{{ $nomina->cod_nomina }}" value="{{ $nomina->dias_laborados }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <input type="number" placeholder="Días Laborados" name="dias_laborados" id="dias_laborados-{{ $nomina->cod_nomina }}" value="{{ $nomina->dias_laborados }}"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Horas Extra</label>
-                                <input type="number" placeholder="Horas Extra" name="hora_extras" id="hora_extras-{{ $nomina->cod_nomina }}" value="{{ $nomina->hora_extras }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <input type="number" placeholder="Horas Extra" name="hora_extras" id="hora_extras-{{ $nomina->cod_nomina }}" value="{{ $nomina->hora_extras }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Comisión</label>comision
-                                <input type="number" placeholder="Comisión" name="comision" id="comision-{{ $nomina->cod_nomina }}" value="{{ $nomina->comision }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <input type="number" placeholder="Comisión" name="comision" id="comision-{{ $nomina->cod_nomina }}" value="{{ $nomina->comision }}"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Bonificación</label>
-                                <input type="number" placeholder="Bonificación" name="bonificacion" id="bonificacion-{{ $nomina->cod_nomina }}" value="{{ $nomina->bonificacion }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <input type="number" placeholder="Bonificación" name="bonificacion" id="bonificacion-{{ $nomina->cod_nomina }}" value="{{ $nomina->bonificacion }}"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-black">Vacaciones</label>
-                                <input type="text" placeholder="Vacaciones" name="vacaciones" id="vacaciones-{{ $nomina->cod_nomina }}" value="{{ $nomina->vacaciones }}" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
+                                <input type="text" placeholder="Vacaciones" name="vacaciones" id="vacaciones-{{ $nomina->cod_nomina }}" value="{{ $nomina->vacaciones }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/>
                             </div>
 
                             <div>

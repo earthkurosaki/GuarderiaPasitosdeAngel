@@ -1,6 +1,24 @@
 <x-app-layout>
     @php
-        $ninos = DB::select('select * from nino');
+        $ninos = DB::table('nino')->get();
+        $datos = DB::select('select * from tutor_ninov');
+
+        // Filtrar por nombre si hay una búsqueda
+        if (request('search')) {
+            $ninos = $ninos->filter(function ($nino) {
+                return stripos($nino->nombre, request('search')) !== false;
+            });
+        }
+
+        // Filtrar por nombre y apellido del niño en la tabla tutor_ninov si hay una búsqueda
+        if (request('search_nino') || request('search_apellido')) {
+            $datos = collect($datos)->filter(function ($dato) {
+                $nombre = request('search_nino');
+                $apellido = request('search_apellido');
+                return (stripos($dato->niño, $nombre) !== false || !$nombre) &&
+                       (stripos($dato->niño_apellido, $apellido) !== false || !$apellido);
+            });
+        }
     @endphp
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -22,8 +40,8 @@
                         </div>
                     </div>
 
-                     <!-- Formulario de Búsqueda -->
-                     <form method="GET" action="{{ route('NinoD') }}" class="mt-4">
+                    <!-- Formulario de Búsqueda -->
+                    <form method="GET" class="mt-4">
                         <div class="flex">
                             <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por nombre" class="form-input rounded-md shadow-sm mt-1 block w-full">
                             <button type="submit" class="ml-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buscar</button>
@@ -32,7 +50,7 @@
 
                     <!-- Botón de Borrar Búsqueda -->
                     @if(request('search'))
-                        <form method="GET" action="{{ route('NinoD') }}" class="mt-4">
+                        <form method="GET" class="mt-4">
                             <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Borrar Búsqueda</button>
                         </form>
                     @endif
@@ -93,7 +111,54 @@
                         </div>
                     </div>
 
-                    
+                    <!-- Segundo Formulario de Búsqueda -->
+                    <form method="GET" class="mt-4">
+                        <div class="flex">
+                            <input type="text" name="search_nino" value="{{ request('search_nino') }}" placeholder="Buscar por nombre del niño" class="form-input rounded-md shadow-sm mt-1 block w-full">
+                            <input type="text" name="search_apellido" value="{{ request('search_apellido') }}" placeholder="Buscar por apellido del niño" class="form-input rounded-md shadow-sm mt-1 block w-full">
+                            <button type="submit" class="ml-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buscar</button>
+                        </div>
+                    </form>
+
+                    <!-- Botón de Borrar Búsqueda -->
+                    @if(request('search_nino') || request('search_apellido'))
+                        <form method="GET" class="mt-4">
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Borrar Búsqueda</button>
+                        </form>
+                    @endif
+
+                    <div class="flow-root">
+                        <div class="mt-8 overflow-x-auto">
+                            <div class="inline-block min-w-full py-2 align-middle">
+                                <table class="w-full divide-y divide-gray-300">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">id</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Niño</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Relación Parental</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Tutor</th>
+                                            <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 bg-white">
+                                        @foreach ($datos as $dato)
+                                            <tr class="even:bg-gray-50">
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $dato->id_nino }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $dato->niño }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $dato->relacion_parental }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $dato->tutor_nombre }}</td>
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
+                                                  
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
